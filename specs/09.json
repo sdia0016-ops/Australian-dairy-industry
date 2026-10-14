@@ -1,0 +1,253 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "Single-stage Sankey: published 2024–25 milk utilisation percentages. Ribbon width is proportional to share. Only the observed milk-to-use relationship is represented.",
+  "width": 1000,
+  "height": 390,
+  "padding": 10,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "signals": [
+    {
+      "name": "sx",
+      "update": "width*0.06"
+    },
+    {
+      "name": "tx",
+      "update": "width*0.57"
+    },
+    {
+      "name": "flowH",
+      "value": 235
+    }
+  ],
+  "data": [
+    {
+      "name": "uses",
+      "values": [
+        {
+          "fy": "2024-25",
+          "year_end": 2025,
+          "product": "Cheese",
+          "share_pct": 40.0,
+          "source_id": "DA_IF2025_F9",
+          "start": 0,
+          "end": 40.0,
+          "order": 0,
+          "color": "#286a9e",
+          "label": "Cheese"
+        },
+        {
+          "fy": "2024-25",
+          "year_end": 2025,
+          "product": "Drinking milk",
+          "share_pct": 32.0,
+          "source_id": "DA_IF2025_F9",
+          "start": 40.0,
+          "end": 72.0,
+          "order": 1,
+          "color": "#367d60",
+          "label": "Drinking milk"
+        },
+        {
+          "fy": "2024-25",
+          "year_end": 2025,
+          "product": "Skim milk powder / butter",
+          "share_pct": 21.0,
+          "source_id": "DA_IF2025_F9",
+          "start": 72.0,
+          "end": 93.0,
+          "order": 2,
+          "color": "#bd802d",
+          "label": "Skim powder / butter"
+        },
+        {
+          "fy": "2024-25",
+          "year_end": 2025,
+          "product": "Whole milk powder",
+          "share_pct": 2.0,
+          "source_id": "DA_IF2025_F9",
+          "start": 93.0,
+          "end": 95.0,
+          "order": 3,
+          "color": "#846289",
+          "label": "Whole milk powder"
+        },
+        {
+          "fy": "2024-25",
+          "year_end": 2025,
+          "product": "Other",
+          "share_pct": 5.0,
+          "source_id": "DA_IF2025_F9",
+          "start": 95.0,
+          "end": 100.0,
+          "order": 4,
+          "color": "#568c9b",
+          "label": "Other"
+        }
+      ],
+      "transform": [
+        {
+          "type": "formula",
+          "expr": "28 + datum.start / 100 * flowH",
+          "as": "sy0"
+        },
+        {
+          "type": "formula",
+          "expr": "28 + datum.end / 100 * flowH",
+          "as": "sy1"
+        },
+        {
+          "type": "formula",
+          "expr": "28 + datum.start / 100 * flowH + datum.order * 24",
+          "as": "ty0"
+        },
+        {
+          "type": "formula",
+          "expr": "28 + datum.end / 100 * flowH + datum.order * 24",
+          "as": "ty1"
+        },
+        {
+          "type": "formula",
+          "expr": "'M'+sx+','+datum.sy0+' C'+(width*.32)+','+datum.sy0+' '+(width*.32)+','+datum.ty0+' '+tx+','+datum.ty0+' L'+tx+','+datum.ty1+' C'+(width*.32)+','+datum.ty1+' '+(width*.32)+','+datum.sy1+' '+sx+','+datum.sy1+' Z'",
+          "as": "path"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "path",
+      "from": {
+        "data": "uses"
+      },
+      "encode": {
+        "update": {
+          "path": {
+            "field": "path"
+          },
+          "fill": {
+            "field": "color"
+          },
+          "fillOpacity": {
+            "value": 0.75
+          },
+          "tooltip": {
+            "signal": "{'Use': datum.product, 'Share of milk (%)': datum.share_pct, 'Year': '2024–25'}"
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 1
+          }
+        }
+      }
+    },
+    {
+      "type": "rect",
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "sx-7"
+          },
+          "width": {
+            "value": 7
+          },
+          "y": {
+            "value": 28
+          },
+          "height": {
+            "signal": "flowH"
+          },
+          "fill": {
+            "value": "#173d65"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "sx-7"
+          },
+          "y": {
+            "value": 12
+          },
+          "text": {
+            "value": "All milk · 100%"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fill": {
+            "value": "#173d65"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "uses"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "tx+10"
+          },
+          "y": {
+            "signal": "(datum.ty0+datum.ty1)/2-3"
+          },
+          "text": {
+            "field": "label"
+          },
+          "fontSize": {
+            "signal": "width < 500 ? 10 : 14"
+          },
+          "limit": {
+            "signal": "width-tx-12"
+          },
+          "fill": {
+            "value": "#173d65"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "uses"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "tx+10"
+          },
+          "y": {
+            "signal": "(datum.ty0+datum.ty1)/2+13"
+          },
+          "text": {
+            "signal": "datum.share_pct + '%'"
+          },
+          "fontSize": {
+            "value": 12
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fill": {
+            "field": "color"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-14"
+  }
+}

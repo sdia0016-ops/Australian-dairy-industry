@@ -1,0 +1,201 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "Treemap of dairy export value by product, 2024–25. Area represents nominal AUD million. Six product totals sum to AUD 3,808 million; whole milk powder includes infant powder.",
+  "width": 1000,
+  "height": 335,
+  "padding": 5,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "data": [
+    {
+      "name": "tree",
+      "values": [
+        {
+          "id": "All exports",
+          "parent": null,
+          "value": 0
+        },
+        {
+          "id": "Butter/AMF",
+          "parent": "All exports",
+          "value": 215.0,
+          "label": "Butter / AMF",
+          "color": "#77654d"
+        },
+        {
+          "id": "Cheese",
+          "parent": "All exports",
+          "value": 1256.0,
+          "label": "Cheese",
+          "color": "#286a9e"
+        },
+        {
+          "id": "Liquid milk",
+          "parent": "All exports",
+          "value": 323.0,
+          "label": "Liquid milk",
+          "color": "#367d60"
+        },
+        {
+          "id": "Skim milk powder",
+          "parent": "All exports",
+          "value": 770.0,
+          "label": "Skim milk powder",
+          "color": "#bd802d"
+        },
+        {
+          "id": "Whole milk powder (including infant powder)",
+          "parent": "All exports",
+          "value": 650.0,
+          "label": "Whole milk powder*",
+          "color": "#846289"
+        },
+        {
+          "id": "Other dairy products",
+          "parent": "All exports",
+          "value": 594.0,
+          "label": "Other dairy",
+          "color": "#568c9b"
+        }
+      ],
+      "transform": [
+        {
+          "type": "stratify",
+          "key": "id",
+          "parentKey": "parent"
+        },
+        {
+          "type": "treemap",
+          "field": "value",
+          "sort": {
+            "field": "value",
+            "order": "descending"
+          },
+          "method": "squarify",
+          "ratio": 1.3,
+          "size": [
+            {
+              "signal": "width"
+            },
+            {
+              "signal": "height"
+            }
+          ],
+          "paddingInner": 4,
+          "round": true
+        }
+      ]
+    },
+    {
+      "name": "leaves",
+      "source": "tree",
+      "transform": [
+        {
+          "type": "filter",
+          "expr": "datum.depth == 1"
+        }
+      ]
+    }
+  ],
+  "marks": [
+    {
+      "type": "rect",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "field": "x0"
+          },
+          "x2": {
+            "field": "x1"
+          },
+          "y": {
+            "field": "y0"
+          },
+          "y2": {
+            "field": "y1"
+          },
+          "fill": {
+            "field": "color"
+          },
+          "tooltip": {
+            "signal": "{'Product': datum.id, 'Value (AUD million)': datum.value, 'Share (%)': format(datum.value/3808*100, '.1f'), 'Year': '2024–25'}"
+          }
+        },
+        "hover": {
+          "fillOpacity": {
+            "value": 0.8
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.x0+12"
+          },
+          "y": {
+            "signal": "datum.y0+26"
+          },
+          "text": {
+            "field": "label"
+          },
+          "fill": {
+            "value": "white"
+          },
+          "fontSize": {
+            "signal": "width < 500 ? 11 : 16"
+          },
+          "limit": {
+            "signal": "datum.x1-datum.x0-20"
+          }
+        }
+      }
+    },
+    {
+      "type": "text",
+      "from": {
+        "data": "leaves"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.x0+12"
+          },
+          "y": {
+            "signal": "datum.y0+49"
+          },
+          "text": {
+            "signal": "'$' + format(datum.value, ',.0f') + 'm'"
+          },
+          "fill": {
+            "value": "white"
+          },
+          "fontWeight": {
+            "value": "bold"
+          },
+          "fontSize": {
+            "signal": "width < 500 ? 12 : 20"
+          },
+          "limit": {
+            "signal": "datum.x1-datum.x0-20"
+          }
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-14"
+  }
+}

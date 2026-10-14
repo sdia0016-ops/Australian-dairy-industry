@@ -1,0 +1,328 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Explore where Australian milk comes from, how dairy farms have changed, what Australians buy and where dairy exports go.">
+  <meta name="theme-color" content="#173d65">
+  <title>Milk, made in Australia — the changing dairy industry</title>
+  <link rel="preload" href="assets/fonts/fraunces.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/vega@6.4.0/build/vega.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vega-lite@6.5.0/build/vega-lite.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/vega-embed@7.3.0/build/vega-embed.min.js"></script>
+  <script defer src="app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to the dairy story</a>
+  <header class="site-header">
+    <div class="header-inner">
+      <a class="wordmark" href="#top" aria-label="Milk, made in Australia — back to the start">Australian <span>dairy.</span></a>
+      <nav aria-label="Story chapters">
+        <a href="#geography">The land</a>
+        <a href="#farms">The farms</a>
+        <a href="#table">The table</a>
+        <a href="#exports">The world</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero page-width" id="top" aria-labelledby="page-title">
+      <div class="hero-story">
+        <h1 id="page-title">Milk, made<br>in <em>Australia.</em></h1>
+        <div class="hero-introduction">
+          <p class="hero-thesis">Fewer farms.<br> A changing appetite.</p>
+          <p>Behind the milk in your fridge is an industry concentrated in the south-east, with fewer registered farms and changing markets at home and abroad.</p>
+          <a class="story-link" href="#geography">Follow the story <span aria-hidden="true">↓</span></a>
+        </div>
+      </div>
+      <dl class="headline-figures" aria-label="Three reference figures with different reporting periods">
+        <div>
+          <dt>Milk produced</dt>
+          <dd>8.65<span>bn litres</span></dd>
+          <p>Australia · 2025–26</p>
+        </div>
+        <div>
+          <dt>Registered dairy farms</dt>
+          <dd>−44<span>%</span></dd>
+          <p>Change · 2011–12 to 2024–25</p>
+        </div>
+        <div>
+          <dt>Retail dairy milk per person</dt>
+          <dd>−7.8<span>%</span></dd>
+          <p>Change in grams/day · 2018–19 to 2023–24</p>
+        </div>
+      </dl>
+      <p class="reading-note">Different sources cover different years. Dates stay beside each comparison. A financial year runs from July to June.</p>
+    </section>
+
+    <noscript><p class="page-width browser-message">Enable JavaScript to view and interact with the charts. The story, source notes and downloadable data remain available below.</p></noscript>
+
+    <section class="chapter" id="geography" aria-labelledby="geography-title">
+      <div class="chapter-heading">
+        <div class="page-width chapter-heading-inner">
+          <p class="chapter-number">Chapter 1 <span>The land</span></p>
+          <h2 id="geography-title">A southern centre of gravity</h2>
+          <p>Victoria produced almost two-thirds of Australia's milk in 2025–26. The size of a state's contribution and the direction of its change tell different stories.</p>
+        </div>
+      </div>
+      <div class="page-width chapter-body">
+        <div class="figure-pair">
+          <figure class="figure" aria-labelledby="title-01">
+            <figcaption>
+              <h3 id="title-01">Where the milk is made</h3>
+              <p class="figure-subtitle">Annual state production · million litres</p>
+              <p class="figure-instruction">Change the year. Circle area shows the amount of milk.</p>
+            </figcaption>
+            <div id="chart-01" class="chart" aria-label="Interactive map of milk production by Australian state" aria-busy="true"><p class="chart-loading">Loading the production map…</p></div>
+            <p class="figure-takeaway"><strong>64.2%</strong> of national production came from Victoria in 2025–26.</p>
+            <p class="figure-note">Circles represent state totals, not farm locations. ACT and NT have no separately reported values; they are not zero.</p>
+            <p class="figure-source"><a href="#source-production">Dairy Australia · revised production</a><span> / </span><a href="data/production_annual.csv">Download data</a></p>
+          </figure>
+          <figure class="figure" aria-labelledby="title-02">
+            <figcaption>
+              <h3 id="title-02">Which states changed?</h3>
+              <p class="figure-subtitle">Production change to 2025–26 · percent</p>
+              <p class="figure-instruction">Choose a starting year to compare each state with itself.</p>
+            </figcaption>
+            <div id="chart-02" class="chart" aria-label="Interactive choropleth of state milk production percentage change" aria-busy="true"><p class="chart-loading">Loading the change map…</p></div>
+            <p class="figure-takeaway">A large percentage change can come from a small starting volume.</p>
+            <p class="figure-note">Colour is centred on zero and uses a fixed scale. Hover for the starting and ending amounts as well as the percentage change.</p>
+            <p class="figure-source"><a href="#source-production">Dairy Australia · revised production</a><span> / </span><a href="data/production_annual.csv">Download data</a></p>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="chapter" id="farms" aria-labelledby="farms-title">
+      <div class="chapter-heading">
+        <div class="page-width chapter-heading-inner">
+          <p class="chapter-number">Chapter 2 <span>The farms</span></p>
+          <h2 id="farms-title">Fewer farms, changing production</h2>
+          <p>Australia had 3,772 registered dairy farms in 2024–25, down from 6,770 in 2011–12. Output has not fallen at the same pace: farm counts alone do not describe the industry's capacity.</p>
+        </div>
+      </div>
+      <div class="page-width chapter-body">
+        <div class="figure-pair">
+          <figure class="figure" aria-labelledby="title-03">
+            <figcaption>
+              <h3 id="title-03">The milk pool over time</h3>
+              <p class="figure-subtitle">Annual production · billion litres · 2020–21 to 2025–26</p>
+              <p class="figure-instruction">Choose Australia or a state to follow its production.</p>
+            </figcaption>
+            <div id="chart-03" class="chart" aria-label="Line chart of annual Australian or state milk production" aria-busy="true"><p class="chart-loading">Loading annual production…</p></div>
+            <p class="figure-takeaway">National output rose <strong>1.5% in 2025–26</strong>, but remained <strong>2.3% below 2020–21</strong>.</p>
+            <p class="figure-source"><a href="#source-production">Dairy Australia · revised production</a><span> / </span><a href="data/production_annual.csv">Download data</a></p>
+          </figure>
+          <figure class="figure" aria-labelledby="title-04">
+            <figcaption>
+              <h3 id="title-04">The rhythm of the dairy year</h3>
+              <p class="figure-subtitle">Monthly production · million litres · 2020–21 to 2025–26</p>
+              <p class="figure-instruction">Choose a region. Darker cells mean more milk.</p>
+            </figcaption>
+            <div id="chart-04" class="chart" aria-label="Heatmap of milk production by month and financial year" aria-busy="true"><p class="chart-loading">Loading monthly production…</p></div>
+            <p class="figure-takeaway">Australia's spring peak repeats across these six complete dairy years.</p>
+            <p class="figure-note">Cells show monthly volume, not daily rates. Months have different lengths.</p>
+            <p class="figure-source"><a href="#source-production">Dairy Australia · monthly production</a><span> / </span><a href="data/production_monthly.csv">Download data</a></p>
+          </figure>
+        </div>
+
+        <aside class="latest-note" aria-label="Latest partial year update">
+          <p class="latest-label">A more recent glimpse</p>
+          <p><strong>July–August 2026: 1.285 billion litres, up 2.45%</strong> on the same two months of 2025. This partial year is kept separate from the complete-year comparisons. <a href="#source-production">Source and coverage</a></p>
+        </aside>
+
+        <figure class="figure figure-full" aria-labelledby="title-05">
+          <figcaption class="wide-caption">
+            <div><h3 id="title-05">What added to the latest recovery?</h3><p class="figure-subtitle">State contributions to national production change · million litres · 2024–25 to 2025–26</p></div>
+            <p class="figure-instruction">Read the state changes from left to right to reach the national total.</p>
+          </figcaption>
+          <div id="chart-05" class="chart" aria-label="Waterfall chart showing state contributions to the national annual milk production change" aria-busy="true"><p class="chart-loading">Loading state contributions…</p></div>
+          <p class="figure-takeaway">Victoria added <strong>102.3 million litres</strong>; national output increased by <strong>129.1 million litres</strong> overall.</p>
+          <p class="figure-note">This is an arithmetic breakdown of the change. It does not establish the reasons behind it.</p>
+          <p class="figure-source"><a href="#source-production">Dairy Australia · revised production</a><span> / </span><a href="data/production_annual.csv">Download data</a></p>
+        </figure>
+
+        <div class="figure-pair">
+          <figure class="figure" aria-labelledby="title-06">
+            <figcaption>
+              <h3 id="title-06">Fewer registered farms</h3>
+              <p class="figure-subtitle">Registered dairy farms · 2011–12 and 2024–25</p>
+              <p class="figure-instruction">Each connected pair compares the same state's farm count.</p>
+            </figcaption>
+            <div id="chart-06" class="chart" aria-label="Dumbbell chart comparing dairy farm counts in 2011–12 and 2024–25" aria-busy="true"><p class="chart-loading">Loading farm counts…</p></div>
+            <p class="figure-takeaway">Every state in this comparison had fewer registered dairy farms in 2024–25.</p>
+            <p class="figure-note">Farm counts measure registered farms, not hectares or profitability.</p>
+            <p class="figure-source"><a href="#source-industry">Dairy Australia · In Focus 2025, Table 2</a><span> / </span><a href="data/farms.csv">Download data</a></p>
+          </figure>
+          <figure class="figure" aria-labelledby="title-07">
+            <figcaption>
+              <h3 id="title-07">More cows per registered farm</h3>
+              <p class="figure-subtitle">Approximate state ratios · 2011–12 and 2024–25</p>
+              <p class="figure-instruction">Trace each state between the two years. Highlight a state to compare its endpoints.</p>
+            </figcaption>
+            <div id="chart-07" class="chart" aria-label="Slope chart comparing approximate cows per registered dairy farm in each state between 2011–12 and 2024–25" aria-busy="true"><p class="chart-loading">Loading the farm structure comparison…</p></div>
+            <p class="figure-takeaway">This ratio increased in every state. Tasmania rose from about <strong>333 to 519 cows per registered farm</strong>.</p>
+            <p class="figure-note">Rounded March cow counts are divided by annual registered farms. This is an approximate structural ratio, not a survey of the typical herd. The focused axis starts at 150; lines compare two endpoints and do not show the intervening path.</p>
+            <p class="figure-source"><a href="#source-industry">Dairy Australia · In Focus 2025, Tables 2–3</a><span> / </span><a href="data/industry_structure.csv">Download data</a></p>
+          </figure>
+        </div>
+
+        <figure class="figure figure-full" aria-labelledby="title-08">
+          <figcaption class="wide-caption">
+            <div><h3 id="title-08">One industry, different state profiles</h3><p class="figure-subtitle">State shares of national farms, cows and milk · percent · 2024–25 report snapshot</p></div>
+            <p class="figure-instruction">Highlight a state and trace its line across the three measures.</p>
+          </figcaption>
+          <div id="chart-08" class="chart" aria-label="Parallel coordinates comparing state shares of Australian dairy farms, cows and production" aria-busy="true"><p class="chart-loading">Loading state profiles…</p></div>
+          <p class="figure-takeaway">A state's share of farms need not equal its share of cows or milk.</p>
+          <p class="figure-note">Each vertical axis runs from 0 to 100%. The denominator changes from all Australian farms to all cows to all milk. Lines connect different measures, not years. All three measures use the same 2025 report vintage, including its original 8,315 million-litre total.</p>
+          <p class="figure-source"><a href="#source-industry">Dairy Australia · In Focus 2025, Tables 2, 3 and 6</a><span> / </span><a href="data/industry_structure.csv">Download data</a></p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter" id="table" aria-labelledby="table-title">
+      <div class="chapter-heading">
+        <div class="page-width chapter-heading-inner">
+          <p class="chapter-number">Chapter 3 <span>The table</span></p>
+          <h2 id="table-title">Milk becomes much more than milk</h2>
+          <p>Cheese takes the largest share of Australia's milk. Meanwhile, the products bought at the checkout are changing, and total purchases can move differently from purchases per person.</p>
+        </div>
+      </div>
+      <div class="page-width chapter-body">
+        <figure class="figure figure-full" aria-labelledby="title-09">
+          <figcaption class="wide-caption">
+            <div><h3 id="title-09">Where each hundred litres goes</h3><p class="figure-subtitle">Published share of milk allocated to each use · percent · 2024–25</p></div>
+            <p class="figure-instruction">Ribbon width represents each product group's share of the milk pool.</p>
+          </figcaption>
+          <div id="chart-09" class="chart" aria-label="Sankey diagram allocating 100 percent of milk to five published product uses" aria-busy="true"><p class="chart-loading">Loading milk uses…</p></div>
+          <p class="figure-takeaway"><strong>40%</strong> went to cheese, compared with <strong>32%</strong> to drinking milk.</p>
+          <p class="figure-note">This shows the published allocation proportions only. Skim milk powder and butter form one combined use. The diagram does not trace finished-product tonnes or onward domestic/export sales.</p>
+          <p class="figure-source"><a href="#source-industry">Dairy Australia · In Focus 2025, Figure 9</a><span> / </span><a href="data/milk_utilisation.csv">Download data</a></p>
+        </figure>
+
+        <figure class="figure figure-full" aria-labelledby="title-10">
+          <figcaption class="wide-caption">
+            <div><h3 id="title-10">The shopping basket per person</h3><p class="figure-subtitle">Retail purchases · grams per person per day · 2018–19 versus selected year</p></div>
+            <p class="figure-instruction">Compare the mirrored wings. Both start at zero and use the same magnitude scale.</p>
+          </figcaption>
+          <div id="chart-10" class="chart" aria-label="Butterfly chart comparing retail dairy purchases per person in 2018–19 with a selected later year" aria-busy="true"><p class="chart-loading">Loading the retail comparison…</p></div>
+          <p class="figure-takeaway">By 2023–24, retail dairy milk was <strong>7.8% lower per person</strong> than in 2018–19; yoghurt was <strong>7.6% higher</strong>.</p>
+          <p class="figure-note">Total retail dairy-milk purchases fell only 0.9% over 2018–19 to 2023–24, while purchases per person fell 7.8%. ABS measures retail purchases, excludes restaurants and other non-retail channels, and does not deduct waste. *Milk alternatives are unflavoured non-dairy substitutes.</p>
+          <p class="figure-source"><a href="#source-abs">Australian Bureau of Statistics · 2023–24 release</a><span> / </span><a href="data/abs_retail.csv">Download data</a></p>
+        </figure>
+
+        <figure class="figure figure-full" aria-labelledby="title-11">
+          <figcaption class="wide-caption">
+            <div><h3 id="title-11">A different mix in the milk market</h3><p class="figure-subtitle">Share of reported drinking-milk sales · 2010–11 versus selected year</p></div>
+            <p class="figure-instruction">Each panel shows 100 squares. Choose the comparison year and highlight a milk type.</p>
+          </figcaption>
+          <div id="chart-11" class="chart" aria-label="Paired waffle charts comparing the shares of Australian drinking-milk sales by type in 2010–11 and a selected later year" aria-busy="true"><p class="chart-loading">Loading drinking-milk sales…</p></div>
+          <p class="figure-takeaway">By 2024–25, regular milk's share rose from <strong>49.3% to 59.3%</strong>, while reduced-fat milk fell from <strong>27.2% to 18.5%</strong>. Total sales rose just <strong>1.1%</strong>.</p>
+          <p class="figure-note">One square represents about 1% of sales. Whole squares use the largest-remainder method to total 100; labels and tooltips show the actual shares and million litres. UHT means long-life milk. These exclusive source categories sum to the reported total and differ from the ABS retail series above.</p>
+          <p class="figure-source"><a href="#source-industry">Dairy Australia · In Focus 2025, Table 11</a><span> / </span><a href="data/milk_sales.csv">Download data</a></p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="chapter" id="exports" aria-labelledby="exports-title">
+      <div class="chapter-heading">
+        <div class="page-width chapter-heading-inner">
+          <p class="chapter-number">Chapter 4 <span>The world</span></p>
+          <h2 id="exports-title">Australian dairy travels</h2>
+          <p>Overseas buyers matter to the industry too. Asia features strongly among the leading destinations, while the export value of cheese shows why looking beyond drinking milk matters.</p>
+        </div>
+      </div>
+      <div class="page-width chapter-body">
+        <figure class="figure figure-full" aria-labelledby="title-12">
+          <figcaption class="wide-caption">
+            <div><h3 id="title-12">The leading overseas markets</h3><p class="figure-subtitle">Top ten export destinations · product tonnes · 2024–25</p></div>
+            <p class="figure-instruction">Highlight a destination to trace its connection and inspect its volume.</p>
+          </figcaption>
+          <div id="chart-12" class="chart" aria-label="Flow map from Australia to the ten leading dairy export markets by volume" aria-busy="true"><p class="chart-loading">Loading export destinations…</p></div>
+          <p class="figure-takeaway"><strong>Greater China</strong> was the largest reported destination group, receiving <strong>156,802 tonnes</strong>.</p>
+          <p class="figure-note">Lines link export destinations; they are not shipping routes. Greater China combines mainland China, Hong Kong and Macau and uses one illustrative map anchor. Only the top ten destinations are shown, not all Australian exports.</p>
+          <p class="figure-source"><a href="#source-industry">Dairy Australia and ABS · In Focus 2025, Table 9</a><span> / </span><a href="data/exports.csv">Download data</a></p>
+        </figure>
+
+        <figure class="figure figure-full" aria-labelledby="title-13">
+          <figcaption class="wide-caption">
+            <div><h3 id="title-13">What earns the export dollar?</h3><p class="figure-subtitle">Dairy export value by product · AUD million · 2024–25</p></div>
+            <p class="figure-instruction">Rectangle area shows each product's share of total export value.</p>
+          </figcaption>
+          <div id="chart-13" class="chart" aria-label="Treemap of Australian dairy export value by product group" aria-busy="true"><p class="chart-loading">Loading export products…</p></div>
+          <p class="figure-takeaway">Cheese accounted for <strong>$1.256 billion</strong> of the <strong>$3.808 billion</strong> total.</p>
+          <p class="figure-note">Values are nominal Australian dollars. Whole milk powder includes infant powder; other products include yoghurt, ice cream and several dairy ingredients. Value reflects prices and product mix as well as quantity.</p>
+          <p class="figure-source"><a href="#source-industry">ABS via Dairy Australia · In Focus 2025, Table 8</a><span> / </span><a href="data/export_products.csv">Download data</a></p>
+        </figure>
+      </div>
+    </section>
+
+    <section class="closing page-width" aria-labelledby="closing-title">
+      <p class="closing-rule" aria-hidden="true"></p>
+      <h2 id="closing-title">Fewer farms.<br>A broader story.</h2>
+      <p>Farm numbers, milk output and demand do not move together. Australia's dairy story combines fewer registered farms, production concentrated in a few states, changing retail habits and a wide range of products sold overseas. Each measure reveals a different part of that change.</p>
+      <a class="story-link" href="#top">Back to the beginning <span aria-hidden="true">↑</span></a>
+    </section>
+  </main>
+
+  <footer class="site-footer" id="sources" aria-labelledby="sources-title">
+    <div class="page-width">
+      <div class="footer-title"><h2 id="sources-title">Sources &amp; reading notes</h2><p>Data checked 13 October 2026</p></div>
+      <div class="source-grid">
+        <section id="source-production">
+          <h3>Milk production</h3>
+          <p><a href="https://www.dairyaustralia.com.au/industry-reports/production-and-sales-statistics">Dairy Australia, Production &amp; Sales Statistics</a>. The latest six-year workbook supplies the revised observations shown for 2020–21 to 2025–26. The current YTD workbook supplies July–August 2026 only.</p>
+          <p><strong>Revisions matter:</strong> the current 2024–25 national total is 8,525.2 million litres; the earlier report stated 8,315 million litres. Production trends use the revised values. The state-profile comparison preserves the original report's internally consistent farm, cow and production snapshot.</p>
+          <p><a href="https://assets.dairyaustralia.com.au/api/public/content/National-Milk-Production-2021-2026?v=74c17153">Production workbook</a> · <a href="https://assets.dairyaustralia.com.au/api/public/content/National-Milk-Production-Data-Year-to-Date-2026-27?v=722c5fef">Latest YTD workbook</a></p>
+        </section>
+        <section id="source-industry">
+          <h3>Farms, milk uses and exports</h3>
+          <p><a href="https://assets.dairyaustralia.com.au/api/public/content/In-Focus-2025?v=42fe4d04">Dairy Australia, Australian Dairy Industry In Focus 2025</a>. Registered farms: Table 2; cows: Table 3; production: Table 6; milk allocation: Figure 9; milk sales: Table 11; export products and markets: Tables 8–9. The report credits dairy manufacturers, state authorities and ABS where applicable.</p>
+          <p>Latest farm counts are provisional and cow counts estimated. Cow counts are rounded and labelled at 31 March. “Cows per farm” divides that count by annual registered farms; it is an approximate structural ratio. Farm counts do not identify why numbers changed.</p>
+          <p>Product quantities, raw-milk litres, retail purchases and export dollars measure different things. They are kept in separate comparisons.</p>
+        </section>
+        <section id="source-abs">
+          <h3>An independent view of demand</h3>
+          <p><a href="https://www.abs.gov.au/statistics/health/food-and-nutrition/apparent-consumption-selected-foodstuffs-australia/2023-24">ABS, Apparent Consumption of Selected Foodstuffs, Australia, 2023–24</a>, Table 1.1, released 28 March 2025. This was the latest release available at the date checked. All comparison years use that release's revised series.</p>
+          <p>Total purchases are measured in thousand tonnes; the per-person measure is grams per day. Percentage changes compare each with its own 2018–19 starting value. Dairy milk includes cow, sheep and goat milk. Unflavoured milk alternatives are shown separately.</p>
+          <p>These retail-purchase estimates exclude non-retail channels such as restaurants, do not deduct waste, and are not measured dietary intake. They are not combined with Dairy Australia's broader consumption estimates. <a href="https://www.abs.gov.au/website-privacy-copyright-and-disclaimer#copyright">ABS copyright and attribution</a>.</p>
+        </section>
+        <section>
+          <h3>Maps, measures and design</h3>
+          <p>State boundaries: <a href="https://geo.abs.gov.au/arcgis/rest/services/ASGS2021/STE/MapServer/1">ABS ASGS 2021 generalised state/territory boundaries</a>. World context: <a href="https://www.naturalearthdata.com/about/terms-of-use/">Natural Earth public-domain geography</a> via <a href="https://github.com/vega/vega-datasets/blob/main/data/world-110m.json">Vega Datasets</a>. Locations used for state symbols and export links are representative anchors.</p>
+          <p>Australian maps use an Australia-centred equal-area projection; the export map uses Equal Earth. Missing territory data are distinct from zero. Percent change means (end ÷ start − 1) × 100. Financial years run July–June. Small discrepancies in report tables can result from source rounding.</p>
+          <p>Display typeface: Fraunces by Undercase Type, <a href="assets/fonts/Fraunces-OFL.txt">SIL Open Font License</a>. The chart designs and page layout were created for this project.</p>
+        </section>
+      </div>
+
+      <details class="technical-notes">
+        <summary>Chart data and readable specifications</summary>
+        <p>Every chart has a separate Vega or Vega-Lite JSON specification. The links below open the readable files in this same website and repository.</p>
+        <ol class="specification-list">
+          <li><a href="specs/01.json">Production map</a></li>
+          <li><a href="specs/02.json">Production change map</a></li>
+          <li><a href="specs/03.json">Production line</a></li>
+          <li><a href="specs/04.json">Monthly heatmap</a></li>
+          <li><a href="specs/05.json">State contribution waterfall</a></li>
+          <li><a href="specs/06.json">Farm count comparison</a></li>
+          <li><a href="specs/07.json">State farm-structure slope chart</a></li>
+          <li><a href="specs/08.json">State profiles</a></li>
+          <li><a href="specs/09.json">Milk allocation</a></li>
+          <li><a href="specs/10.json">ABS retail butterfly</a></li>
+          <li><a href="specs/11.json">Drinking-milk share waffles</a></li>
+          <li><a href="specs/12.json">Export destinations</a></li>
+          <li><a href="specs/13.json">Export product values</a></li>
+        </ol>
+        <p><a href="data/dairy_sources.json">Dairy source dictionary</a> · <a href="data/dairy.json">Combined Dairy Australia data</a> · <a href="data/abs_retail.csv">ABS comparison data</a></p>
+      </details>
+
+      <div class="authorship">
+        <p><strong>Senuth Dias</strong><br>FIT3179 Data Visualisation 2 · Australian Dairy Industry<br><time datetime="2026-10-14">14 October 2026</time></p>
+        <p class="ai-acknowledgement"><strong>AI acknowledgement:</strong> OpenAI Codex assisted with story development, visual design and documentation.</p>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

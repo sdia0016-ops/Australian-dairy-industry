@@ -1,0 +1,670 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Annual milk output using the retrospectively revised 2020–21 to 2025–26 series only. Zero-based vertical scale.",
+  "width": 500,
+  "height": 285,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": 12,
+  "config": {
+    "font": "Avenir Next, Arial, sans-serif",
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "gridColor": "#e5edf2",
+      "domainColor": "#a3b5c3",
+      "tickColor": "#a3b5c3",
+      "titlePadding": 12,
+      "labelPadding": 6
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "orient": "bottom"
+    },
+    "range": {
+      "category": [
+        "#286a9e",
+        "#367d60",
+        "#bd802d",
+        "#846289",
+        "#568c9b",
+        "#77654d"
+      ]
+    }
+  },
+  "data": {
+    "values": [
+      {
+        "fy": "2020-21",
+        "year_end": 2021,
+        "state": "Australia",
+        "state_code": "AUS",
+        "state_id": 0,
+        "production_ml": 8858.134961253832,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "production_bl": 8.858134961253832
+      },
+      {
+        "fy": "2020-21",
+        "year_end": 2021,
+        "state": "New South Wales",
+        "state_code": "NSW",
+        "state_id": 1,
+        "production_ml": 1075.4441640654397,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 147,
+        "lat": -32.5,
+        "production_bl": 1.0754441640654397
+      },
+      {
+        "fy": "2020-21",
+        "year_end": 2021,
+        "state": "Victoria",
+        "state_code": "VIC",
+        "state_id": 2,
+        "production_ml": 5650.789779246615,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.8,
+        "lat": -37,
+        "production_bl": 5.650789779246614
+      },
+      {
+        "fy": "2020-21",
+        "year_end": 2021,
+        "state": "Queensland",
+        "state_code": "QLD",
+        "state_id": 3,
+        "production_ml": 309.4509312405026,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.5,
+        "lat": -22.5,
+        "production_bl": 0.3094509312405026
+      },
+      {
+        "fy": "2020-21",
+        "year_end": 2021,
+        "state": "South Australia",
+        "state_code": "SA",
+        "state_id": 4,
+        "production_ml": 499.4998044912718,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 135,
+        "lat": -30.3,
+        "production_bl": 0.4994998044912718
+      },
+      {
+        "fy": "2020-21",
+        "year_end": 2021,
+        "state": "Western Australia",
+        "state_code": "WA",
+        "state_id": 5,
+        "production_ml": 361.92871840773046,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 122,
+        "lat": -25.5,
+        "production_bl": 0.36192871840773044
+      },
+      {
+        "fy": "2020-21",
+        "year_end": 2021,
+        "state": "Tasmania",
+        "state_code": "TAS",
+        "state_id": 6,
+        "production_ml": 961.0215638022737,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 146.6,
+        "lat": -42.1,
+        "production_bl": 0.9610215638022737
+      },
+      {
+        "fy": "2021-22",
+        "year_end": 2022,
+        "state": "Australia",
+        "state_code": "AUS",
+        "state_id": 0,
+        "production_ml": 8462.581490415074,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "production_bl": 8.462581490415074
+      },
+      {
+        "fy": "2021-22",
+        "year_end": 2022,
+        "state": "New South Wales",
+        "state_code": "NSW",
+        "state_id": 1,
+        "production_ml": 1033.7090553373205,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 147,
+        "lat": -32.5,
+        "production_bl": 1.0337090553373205
+      },
+      {
+        "fy": "2021-22",
+        "year_end": 2022,
+        "state": "Victoria",
+        "state_code": "VIC",
+        "state_id": 2,
+        "production_ml": 5442.705605103027,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.8,
+        "lat": -37,
+        "production_bl": 5.4427056051030265
+      },
+      {
+        "fy": "2021-22",
+        "year_end": 2022,
+        "state": "Queensland",
+        "state_code": "QLD",
+        "state_id": 3,
+        "production_ml": 291.90803477782396,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.5,
+        "lat": -22.5,
+        "production_bl": 0.29190803477782395
+      },
+      {
+        "fy": "2021-22",
+        "year_end": 2022,
+        "state": "South Australia",
+        "state_code": "SA",
+        "state_id": 4,
+        "production_ml": 473.9404251697258,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 135,
+        "lat": -30.3,
+        "production_bl": 0.4739404251697258
+      },
+      {
+        "fy": "2021-22",
+        "year_end": 2022,
+        "state": "Western Australia",
+        "state_code": "WA",
+        "state_id": 5,
+        "production_ml": 336.9230352573697,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 122,
+        "lat": -25.5,
+        "production_bl": 0.33692303525736966
+      },
+      {
+        "fy": "2021-22",
+        "year_end": 2022,
+        "state": "Tasmania",
+        "state_code": "TAS",
+        "state_id": 6,
+        "production_ml": 883.3953347698081,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 146.6,
+        "lat": -42.1,
+        "production_bl": 0.883395334769808
+      },
+      {
+        "fy": "2022-23",
+        "year_end": 2023,
+        "state": "Australia",
+        "state_code": "AUS",
+        "state_id": 0,
+        "production_ml": 8255.283207914279,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "production_bl": 8.255283207914278
+      },
+      {
+        "fy": "2022-23",
+        "year_end": 2023,
+        "state": "New South Wales",
+        "state_code": "NSW",
+        "state_id": 1,
+        "production_ml": 1037.8349595529796,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 147,
+        "lat": -32.5,
+        "production_bl": 1.0378349595529797
+      },
+      {
+        "fy": "2022-23",
+        "year_end": 2023,
+        "state": "Victoria",
+        "state_code": "VIC",
+        "state_id": 2,
+        "production_ml": 5178.336850516294,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.8,
+        "lat": -37,
+        "production_bl": 5.1783368505162946
+      },
+      {
+        "fy": "2022-23",
+        "year_end": 2023,
+        "state": "Queensland",
+        "state_code": "QLD",
+        "state_id": 3,
+        "production_ml": 288.8203629395449,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.5,
+        "lat": -22.5,
+        "production_bl": 0.2888203629395449
+      },
+      {
+        "fy": "2022-23",
+        "year_end": 2023,
+        "state": "South Australia",
+        "state_code": "SA",
+        "state_id": 4,
+        "production_ml": 495.29507757023583,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 135,
+        "lat": -30.3,
+        "production_bl": 0.49529507757023583
+      },
+      {
+        "fy": "2022-23",
+        "year_end": 2023,
+        "state": "Western Australia",
+        "state_code": "WA",
+        "state_id": 5,
+        "production_ml": 343.5810072394275,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 122,
+        "lat": -25.5,
+        "production_bl": 0.34358100723942747
+      },
+      {
+        "fy": "2022-23",
+        "year_end": 2023,
+        "state": "Tasmania",
+        "state_code": "TAS",
+        "state_id": 6,
+        "production_ml": 911.4149500957972,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 146.6,
+        "lat": -42.1,
+        "production_bl": 0.9114149500957972
+      },
+      {
+        "fy": "2023-24",
+        "year_end": 2024,
+        "state": "Australia",
+        "state_code": "AUS",
+        "state_id": 0,
+        "production_ml": 8494.208481786629,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "production_bl": 8.494208481786629
+      },
+      {
+        "fy": "2023-24",
+        "year_end": 2024,
+        "state": "New South Wales",
+        "state_code": "NSW",
+        "state_id": 1,
+        "production_ml": 1054.8763138699314,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 147,
+        "lat": -32.5,
+        "production_bl": 1.0548763138699315
+      },
+      {
+        "fy": "2023-24",
+        "year_end": 2024,
+        "state": "Victoria",
+        "state_code": "VIC",
+        "state_id": 2,
+        "production_ml": 5360.888203976653,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.8,
+        "lat": -37,
+        "production_bl": 5.360888203976653
+      },
+      {
+        "fy": "2023-24",
+        "year_end": 2024,
+        "state": "Queensland",
+        "state_code": "QLD",
+        "state_id": 3,
+        "production_ml": 291.4760786994445,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.5,
+        "lat": -22.5,
+        "production_bl": 0.2914760786994445
+      },
+      {
+        "fy": "2023-24",
+        "year_end": 2024,
+        "state": "South Australia",
+        "state_code": "SA",
+        "state_id": 4,
+        "production_ml": 500.41029318212225,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 135,
+        "lat": -30.3,
+        "production_bl": 0.5004102931821223
+      },
+      {
+        "fy": "2023-24",
+        "year_end": 2024,
+        "state": "Western Australia",
+        "state_code": "WA",
+        "state_id": 5,
+        "production_ml": 347.595639813495,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 122,
+        "lat": -25.5,
+        "production_bl": 0.347595639813495
+      },
+      {
+        "fy": "2023-24",
+        "year_end": 2024,
+        "state": "Tasmania",
+        "state_code": "TAS",
+        "state_id": 6,
+        "production_ml": 938.9619522449831,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 146.6,
+        "lat": -42.1,
+        "production_bl": 0.9389619522449831
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "Australia",
+        "state_code": "AUS",
+        "state_id": 0,
+        "production_ml": 8525.24297022316,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "production_bl": 8.525242970223161
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "New South Wales",
+        "state_code": "NSW",
+        "state_id": 1,
+        "production_ml": 1065.0445446783897,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 147,
+        "lat": -32.5,
+        "production_bl": 1.0650445446783896
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "Victoria",
+        "state_code": "VIC",
+        "state_id": 2,
+        "production_ml": 5452.299882538468,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.8,
+        "lat": -37,
+        "production_bl": 5.452299882538468
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "Queensland",
+        "state_code": "QLD",
+        "state_id": 3,
+        "production_ml": 278.6071182047546,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.5,
+        "lat": -22.5,
+        "production_bl": 0.2786071182047546
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "South Australia",
+        "state_code": "SA",
+        "state_id": 4,
+        "production_ml": 472.31561474811514,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 135,
+        "lat": -30.3,
+        "production_bl": 0.4723156147481151
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "Western Australia",
+        "state_code": "WA",
+        "state_id": 5,
+        "production_ml": 339.93428604976015,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 122,
+        "lat": -25.5,
+        "production_bl": 0.33993428604976017
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "Tasmania",
+        "state_code": "TAS",
+        "state_id": 6,
+        "production_ml": 917.0415240036727,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 146.6,
+        "lat": -42.1,
+        "production_bl": 0.9170415240036728
+      },
+      {
+        "fy": "2025-26",
+        "year_end": 2026,
+        "state": "Australia",
+        "state_code": "AUS",
+        "state_id": 0,
+        "production_ml": 8654.306907734153,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "production_bl": 8.654306907734153
+      },
+      {
+        "fy": "2025-26",
+        "year_end": 2026,
+        "state": "New South Wales",
+        "state_code": "NSW",
+        "state_id": 1,
+        "production_ml": 1090.1125300875078,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 147,
+        "lat": -32.5,
+        "production_bl": 1.0901125300875079
+      },
+      {
+        "fy": "2025-26",
+        "year_end": 2026,
+        "state": "Victoria",
+        "state_code": "VIC",
+        "state_id": 2,
+        "production_ml": 5554.636644197224,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.8,
+        "lat": -37,
+        "production_bl": 5.554636644197224
+      },
+      {
+        "fy": "2025-26",
+        "year_end": 2026,
+        "state": "Queensland",
+        "state_code": "QLD",
+        "state_id": 3,
+        "production_ml": 287.67077625373315,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 144.5,
+        "lat": -22.5,
+        "production_bl": 0.28767077625373316
+      },
+      {
+        "fy": "2025-26",
+        "year_end": 2026,
+        "state": "South Australia",
+        "state_code": "SA",
+        "state_id": 4,
+        "production_ml": 443.9482050735372,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 135,
+        "lat": -30.3,
+        "production_bl": 0.4439482050735372
+      },
+      {
+        "fy": "2025-26",
+        "year_end": 2026,
+        "state": "Western Australia",
+        "state_code": "WA",
+        "state_id": 5,
+        "production_ml": 337.36679907630884,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 122,
+        "lat": -25.5,
+        "production_bl": 0.33736679907630884
+      },
+      {
+        "fy": "2025-26",
+        "year_end": 2026,
+        "state": "Tasmania",
+        "state_code": "TAS",
+        "state_id": 6,
+        "production_ml": 940.5719530458448,
+        "status": "revised",
+        "source_id": "DA_MILK_REVISED_2026",
+        "lon": 146.6,
+        "lat": -42.1,
+        "production_bl": 0.9405719530458448
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "region",
+      "value": "AUS",
+      "bind": {
+        "input": "select",
+        "options": [
+          "AUS",
+          "NSW",
+          "VIC",
+          "QLD",
+          "SA",
+          "WA",
+          "TAS"
+        ],
+        "name": "Region ",
+        "labels": [
+          "Australia",
+          "New South Wales",
+          "Victoria",
+          "Queensland",
+          "South Australia",
+          "Western Australia",
+          "Tasmania"
+        ]
+      }
+    }
+  ],
+  "transform": [
+    {
+      "filter": "datum.state_code == region"
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "color": "#286a9e",
+    "strokeWidth": 3,
+    "point": {
+      "filled": true,
+      "size": 65
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "fy",
+      "type": "ordinal",
+      "title": null,
+      "axis": {
+        "labelAngle": -25,
+        "labelFontSize": 11
+      }
+    },
+    "y": {
+      "field": "production_bl",
+      "type": "quantitative",
+      "title": "Billion litres",
+      "scale": {
+        "zero": true
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "fy",
+        "type": "nominal",
+        "title": "Financial year"
+      },
+      {
+        "field": "production_ml",
+        "type": "quantitative",
+        "title": "Milk (million litres)",
+        "format": ",.1f"
+      }
+    ]
+  },
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-14"
+  }
+}

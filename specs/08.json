@@ -1,0 +1,277 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Parallel coordinates compare each state’s share of three different national totals, all from the same 2024–25 annual-report vintage. Axes are attributes, not time. Milk denominator is the report’s 8,315 ML, not the revised production series.",
+  "width": 500,
+  "height": 300,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": 12,
+  "config": {
+    "font": "Avenir Next, Arial, sans-serif",
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "gridColor": "#e5edf2",
+      "domainColor": "#a3b5c3",
+      "tickColor": "#a3b5c3",
+      "titlePadding": 12,
+      "labelPadding": 6
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "orient": "bottom"
+    },
+    "range": {
+      "category": [
+        "#286a9e",
+        "#367d60",
+        "#bd802d",
+        "#846289",
+        "#568c9b",
+        "#77654d"
+      ]
+    }
+  },
+  "data": {
+    "values": [
+      {
+        "state": "NSW",
+        "attribute": "Farms",
+        "share_pct": 11.744432661717921,
+        "order": 0
+      },
+      {
+        "state": "NSW",
+        "attribute": "Cows",
+        "share_pct": 11.692307692307692,
+        "order": 1
+      },
+      {
+        "state": "NSW",
+        "attribute": "Milk",
+        "share_pct": 12.880336740829826,
+        "order": 2
+      },
+      {
+        "state": "VIC",
+        "attribute": "Farms",
+        "share_pct": 65.64156945917286,
+        "order": 0
+      },
+      {
+        "state": "VIC",
+        "attribute": "Cows",
+        "share_pct": 61.92307692307693,
+        "order": 1
+      },
+      {
+        "state": "VIC",
+        "attribute": "Milk",
+        "share_pct": 63.33132892363199,
+        "order": 2
+      },
+      {
+        "state": "QLD",
+        "attribute": "Farms",
+        "share_pct": 6.707317073170732,
+        "order": 0
+      },
+      {
+        "state": "QLD",
+        "attribute": "Cows",
+        "share_pct": 4.538461538461538,
+        "order": 1
+      },
+      {
+        "state": "QLD",
+        "attribute": "Milk",
+        "share_pct": 3.307276007215875,
+        "order": 2
+      },
+      {
+        "state": "SA",
+        "attribute": "Farms",
+        "share_pct": 4.40084835630965,
+        "order": 0
+      },
+      {
+        "state": "SA",
+        "attribute": "Cows",
+        "share_pct": 4.923076923076923,
+        "order": 1
+      },
+      {
+        "state": "SA",
+        "attribute": "Milk",
+        "share_pct": 5.664461815995189,
+        "order": 2
+      },
+      {
+        "state": "WA",
+        "attribute": "Farms",
+        "share_pct": 2.6246023329798516,
+        "order": 0
+      },
+      {
+        "state": "WA",
+        "attribute": "Cows",
+        "share_pct": 3.5384615384615383,
+        "order": 1
+      },
+      {
+        "state": "WA",
+        "attribute": "Milk",
+        "share_pct": 3.9807576668671074,
+        "order": 2
+      },
+      {
+        "state": "TAS",
+        "attribute": "Farms",
+        "share_pct": 8.881230116648993,
+        "order": 0
+      },
+      {
+        "state": "TAS",
+        "attribute": "Cows",
+        "share_pct": 13.384615384615383,
+        "order": 1
+      },
+      {
+        "state": "TAS",
+        "attribute": "Milk",
+        "share_pct": 10.835838845460012,
+        "order": 2
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "stateFocus",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "NSW",
+          "VIC",
+          "QLD",
+          "SA",
+          "WA",
+          "TAS"
+        ],
+        "name": "Highlight state "
+      }
+    }
+  ],
+  "mark": {
+    "type": "line",
+    "strokeWidth": 2.5,
+    "point": {
+      "filled": true,
+      "size": 70
+    }
+  },
+  "encoding": {
+    "x": {
+      "field": "attribute",
+      "type": "ordinal",
+      "sort": [
+        "Farms",
+        "Cows",
+        "Milk"
+      ],
+      "title": null,
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 13,
+        "grid": true
+      }
+    },
+    "y": {
+      "field": "share_pct",
+      "type": "quantitative",
+      "title": "Share of the Australian total (%)",
+      "scale": {
+        "domain": [
+          0,
+          100
+        ]
+      }
+    },
+    "color": {
+      "field": "state",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "NSW",
+          "VIC",
+          "QLD",
+          "SA",
+          "WA",
+          "TAS"
+        ],
+        "range": [
+          "#286a9e",
+          "#367d60",
+          "#bd802d",
+          "#846289",
+          "#568c9b",
+          "#77654d"
+        ]
+      },
+      "legend": {
+        "title": null,
+        "columns": 3
+      }
+    },
+    "opacity": {
+      "condition": {
+        "test": "stateFocus == 'All' || datum.state == stateFocus",
+        "value": 1
+      },
+      "value": 0.12
+    },
+    "detail": {
+      "field": "state"
+    },
+    "order": {
+      "field": "order"
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "attribute",
+        "type": "nominal",
+        "title": "Measure"
+      },
+      {
+        "field": "share_pct",
+        "type": "quantitative",
+        "title": "Share (%)",
+        "format": ".1f"
+      }
+    ]
+  },
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-14"
+  }
+}

@@ -1,0 +1,788 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Flow map of the ten largest dairy export destinations by reported tonnage, 2024–25. Links show trading relationships, not shipping routes. Greater China includes mainland China, Hong Kong and Macau; the anchor is illustrative.",
+  "width": 500,
+  "height": 430,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": 12,
+  "config": {
+    "font": "Avenir Next, Arial, sans-serif",
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "gridColor": "#e5edf2",
+      "domainColor": "#a3b5c3",
+      "tickColor": "#a3b5c3",
+      "titlePadding": 12,
+      "labelPadding": 6
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "orient": "bottom"
+    },
+    "range": {
+      "category": [
+        "#286a9e",
+        "#367d60",
+        "#bd802d",
+        "#846289",
+        "#568c9b",
+        "#77654d"
+      ]
+    }
+  },
+  "params": [
+    {
+      "name": "destination",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "Greater China",
+          "Japan",
+          "Malaysia",
+          "Singapore",
+          "Indonesia",
+          "Thailand",
+          "Vietnam",
+          "Philippines",
+          "Korea, South",
+          "New Zealand"
+        ],
+        "name": "Highlight destination "
+      }
+    }
+  ],
+  "projection": {
+    "type": "equalEarth",
+    "rotate": [
+      -120,
+      0,
+      0
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/world-110m.json",
+        "format": {
+          "type": "topojson",
+          "feature": "countries"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#edf2f5",
+        "stroke": "white",
+        "strokeWidth": 0.5
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  110,
+                  34
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Greater China",
+            "iso3": "CHN_GROUP",
+            "tonnes": 156802.0,
+            "reported_volume_share_pct": "23",
+            "value_aud_m": 1033.0,
+            "reported_value_share_pct": "27",
+            "source_id": "DA_IF2025_T9"
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  138,
+                  37
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Japan",
+            "iso3": "JPN",
+            "tonnes": 74988.0,
+            "reported_volume_share_pct": "11",
+            "value_aud_m": 519.0,
+            "reported_value_share_pct": "14",
+            "source_id": "DA_IF2025_T9"
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  102,
+                  4
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Malaysia",
+            "iso3": "MYS",
+            "tonnes": 63327.0,
+            "reported_volume_share_pct": "9",
+            "value_aud_m": 297.0,
+            "reported_value_share_pct": "8",
+            "source_id": "DA_IF2025_T9"
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  104,
+                  1
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Singapore",
+            "iso3": "SGP",
+            "tonnes": 58312.0,
+            "reported_volume_share_pct": "9",
+            "value_aud_m": 206.0,
+            "reported_value_share_pct": "5",
+            "source_id": "DA_IF2025_T9"
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  117,
+                  -5
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Indonesia",
+            "iso3": "IDN",
+            "tonnes": 57389.0,
+            "reported_volume_share_pct": "9",
+            "value_aud_m": 302.0,
+            "reported_value_share_pct": "8",
+            "source_id": "DA_IF2025_T9"
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  101,
+                  16
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Thailand",
+            "iso3": "THA",
+            "tonnes": 39237.0,
+            "reported_volume_share_pct": "6",
+            "value_aud_m": 218.0,
+            "reported_value_share_pct": "6",
+            "source_id": "DA_IF2025_T9"
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  108,
+                  17
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Vietnam",
+            "iso3": "VNM",
+            "tonnes": 36881.0,
+            "reported_volume_share_pct": "6",
+            "value_aud_m": 198.0,
+            "reported_value_share_pct": "5",
+            "source_id": "DA_IF2025_T9"
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  123,
+                  12
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Philippines",
+            "iso3": "PHL",
+            "tonnes": 35349.0,
+            "reported_volume_share_pct": "5",
+            "value_aud_m": 145.0,
+            "reported_value_share_pct": "4",
+            "source_id": "DA_IF2025_T9"
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  128,
+                  36
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Korea, South",
+            "iso3": "KOR",
+            "tonnes": 21147.0,
+            "reported_volume_share_pct": "3",
+            "value_aud_m": 141.0,
+            "reported_value_share_pct": "4",
+            "source_id": "DA_IF2025_T9"
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  134,
+                  -25
+                ],
+                [
+                  173,
+                  -41
+                ]
+              ]
+            },
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "New Zealand",
+            "iso3": "NZL",
+            "tonnes": 20566.0,
+            "reported_volume_share_pct": "3",
+            "value_aud_m": 138.0,
+            "reported_value_share_pct": "4",
+            "source_id": "DA_IF2025_T9"
+          }
+        ]
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#286a9e",
+        "strokeCap": "round"
+      },
+      "encoding": {
+        "strokeWidth": {
+          "field": "tonnes",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              160000
+            ],
+            "range": [
+              0,
+              10
+            ]
+          },
+          "legend": {
+            "title": "Exported tonnes",
+            "values": [
+              25000,
+              75000,
+              150000
+            ],
+            "direction": "horizontal",
+            "symbolType": "stroke",
+            "symbolStrokeColor": "#286a9e"
+          }
+        },
+        "opacity": {
+          "condition": {
+            "test": "destination == 'All' || datum.country == destination",
+            "value": 0.6
+          },
+          "value": 0.04
+        },
+        "tooltip": [
+          {
+            "field": "country",
+            "type": "nominal",
+            "title": "Destination"
+          },
+          {
+            "field": "tonnes",
+            "type": "quantitative",
+            "title": "Exported tonnes",
+            "format": ",.0f"
+          },
+          {
+            "field": "value_aud_m",
+            "type": "quantitative",
+            "title": "Value (AUD million)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Greater China",
+            "iso3": "CHN_GROUP",
+            "tonnes": 156802.0,
+            "reported_volume_share_pct": "23",
+            "value_aud_m": 1033.0,
+            "reported_value_share_pct": "27",
+            "source_id": "DA_IF2025_T9",
+            "lon": 110,
+            "lat": 34
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Japan",
+            "iso3": "JPN",
+            "tonnes": 74988.0,
+            "reported_volume_share_pct": "11",
+            "value_aud_m": 519.0,
+            "reported_value_share_pct": "14",
+            "source_id": "DA_IF2025_T9",
+            "lon": 138,
+            "lat": 37
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Malaysia",
+            "iso3": "MYS",
+            "tonnes": 63327.0,
+            "reported_volume_share_pct": "9",
+            "value_aud_m": 297.0,
+            "reported_value_share_pct": "8",
+            "source_id": "DA_IF2025_T9",
+            "lon": 102,
+            "lat": 4
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Singapore",
+            "iso3": "SGP",
+            "tonnes": 58312.0,
+            "reported_volume_share_pct": "9",
+            "value_aud_m": 206.0,
+            "reported_value_share_pct": "5",
+            "source_id": "DA_IF2025_T9",
+            "lon": 104,
+            "lat": 1
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Indonesia",
+            "iso3": "IDN",
+            "tonnes": 57389.0,
+            "reported_volume_share_pct": "9",
+            "value_aud_m": 302.0,
+            "reported_value_share_pct": "8",
+            "source_id": "DA_IF2025_T9",
+            "lon": 117,
+            "lat": -5
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Thailand",
+            "iso3": "THA",
+            "tonnes": 39237.0,
+            "reported_volume_share_pct": "6",
+            "value_aud_m": 218.0,
+            "reported_value_share_pct": "6",
+            "source_id": "DA_IF2025_T9",
+            "lon": 101,
+            "lat": 16
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Vietnam",
+            "iso3": "VNM",
+            "tonnes": 36881.0,
+            "reported_volume_share_pct": "6",
+            "value_aud_m": 198.0,
+            "reported_value_share_pct": "5",
+            "source_id": "DA_IF2025_T9",
+            "lon": 108,
+            "lat": 17
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Philippines",
+            "iso3": "PHL",
+            "tonnes": 35349.0,
+            "reported_volume_share_pct": "5",
+            "value_aud_m": 145.0,
+            "reported_value_share_pct": "4",
+            "source_id": "DA_IF2025_T9",
+            "lon": 123,
+            "lat": 12
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Korea, South",
+            "iso3": "KOR",
+            "tonnes": 21147.0,
+            "reported_volume_share_pct": "3",
+            "value_aud_m": 141.0,
+            "reported_value_share_pct": "4",
+            "source_id": "DA_IF2025_T9",
+            "lon": 128,
+            "lat": 36
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "New Zealand",
+            "iso3": "NZL",
+            "tonnes": 20566.0,
+            "reported_volume_share_pct": "3",
+            "value_aud_m": 138.0,
+            "reported_value_share_pct": "4",
+            "source_id": "DA_IF2025_T9",
+            "lon": 173,
+            "lat": -41
+          }
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "size": 60,
+        "color": "#286a9e",
+        "stroke": "white",
+        "strokeWidth": 1,
+        "opacity": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "opacity": {
+          "condition": {
+            "test": "destination == 'All' || datum.country == destination",
+            "value": 1
+          },
+          "value": 0.15
+        },
+        "tooltip": [
+          {
+            "field": "country",
+            "type": "nominal",
+            "title": "Destination"
+          },
+          {
+            "field": "tonnes",
+            "type": "quantitative",
+            "title": "Exported tonnes",
+            "format": ",.0f"
+          },
+          {
+            "field": "value_aud_m",
+            "type": "quantitative",
+            "title": "Value (AUD million)",
+            "format": ",.0f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "lon": 134,
+            "lat": -25,
+            "label": "Australia"
+          }
+        ]
+      },
+      "mark": {
+        "type": "text",
+        "dy": 17,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#173d65"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Greater China",
+            "iso3": "CHN_GROUP",
+            "tonnes": 156802.0,
+            "reported_volume_share_pct": "23",
+            "value_aud_m": 1033.0,
+            "reported_value_share_pct": "27",
+            "source_id": "DA_IF2025_T9",
+            "lon": 110,
+            "lat": 34
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Japan",
+            "iso3": "JPN",
+            "tonnes": 74988.0,
+            "reported_volume_share_pct": "11",
+            "value_aud_m": 519.0,
+            "reported_value_share_pct": "14",
+            "source_id": "DA_IF2025_T9",
+            "lon": 138,
+            "lat": 37
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Malaysia",
+            "iso3": "MYS",
+            "tonnes": 63327.0,
+            "reported_volume_share_pct": "9",
+            "value_aud_m": 297.0,
+            "reported_value_share_pct": "8",
+            "source_id": "DA_IF2025_T9",
+            "lon": 102,
+            "lat": 4
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Singapore",
+            "iso3": "SGP",
+            "tonnes": 58312.0,
+            "reported_volume_share_pct": "9",
+            "value_aud_m": 206.0,
+            "reported_value_share_pct": "5",
+            "source_id": "DA_IF2025_T9",
+            "lon": 104,
+            "lat": 1
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Indonesia",
+            "iso3": "IDN",
+            "tonnes": 57389.0,
+            "reported_volume_share_pct": "9",
+            "value_aud_m": 302.0,
+            "reported_value_share_pct": "8",
+            "source_id": "DA_IF2025_T9",
+            "lon": 117,
+            "lat": -5
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Thailand",
+            "iso3": "THA",
+            "tonnes": 39237.0,
+            "reported_volume_share_pct": "6",
+            "value_aud_m": 218.0,
+            "reported_value_share_pct": "6",
+            "source_id": "DA_IF2025_T9",
+            "lon": 101,
+            "lat": 16
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Vietnam",
+            "iso3": "VNM",
+            "tonnes": 36881.0,
+            "reported_volume_share_pct": "6",
+            "value_aud_m": 198.0,
+            "reported_value_share_pct": "5",
+            "source_id": "DA_IF2025_T9",
+            "lon": 108,
+            "lat": 17
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Philippines",
+            "iso3": "PHL",
+            "tonnes": 35349.0,
+            "reported_volume_share_pct": "5",
+            "value_aud_m": 145.0,
+            "reported_value_share_pct": "4",
+            "source_id": "DA_IF2025_T9",
+            "lon": 123,
+            "lat": 12
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "Korea, South",
+            "iso3": "KOR",
+            "tonnes": 21147.0,
+            "reported_volume_share_pct": "3",
+            "value_aud_m": 141.0,
+            "reported_value_share_pct": "4",
+            "source_id": "DA_IF2025_T9",
+            "lon": 128,
+            "lat": 36
+          },
+          {
+            "fy": "2024-25",
+            "year_end": 2025,
+            "country": "New Zealand",
+            "iso3": "NZL",
+            "tonnes": 20566.0,
+            "reported_volume_share_pct": "3",
+            "value_aud_m": 138.0,
+            "reported_value_share_pct": "4",
+            "source_id": "DA_IF2025_T9",
+            "lon": 173,
+            "lat": -41
+          }
+        ]
+      },
+      "transform": [
+        {
+          "filter": "datum.country == destination"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "dy": -13,
+        "fontSize": 13,
+        "fontWeight": "bold",
+        "color": "#173d65"
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "country"
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-14"
+  }
+}

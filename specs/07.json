@@ -1,0 +1,407 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Slope chart of approximate cows per registered dairy farm in six states, 2011–12 versus 2024–25. Two endpoints only; slopes do not describe intervening annual movement. Ratios use rounded March cow counts divided by annual registered farms.",
+  "width": 500,
+  "height": 390,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": 12,
+  "config": {
+    "font": "Avenir Next, Arial, sans-serif",
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "gridColor": "#e5edf2",
+      "domainColor": "#a3b5c3",
+      "tickColor": "#a3b5c3",
+      "titlePadding": 12,
+      "labelPadding": 6
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "orient": "bottom"
+    },
+    "range": {
+      "category": [
+        "#286a9e",
+        "#367d60",
+        "#bd802d",
+        "#846289",
+        "#568c9b",
+        "#77654d"
+      ]
+    }
+  },
+  "data": {
+    "values": [
+      {
+        "fy": "2011-12",
+        "year_end": 2012,
+        "state": "New South Wales",
+        "state_code": "NSW",
+        "state_id": 1,
+        "farms": 778.0,
+        "cows_thousand": 204.0,
+        "production_ml": 1136.0,
+        "litres_per_cow": 5760.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 262.2107969151671,
+        "period": "2011–12",
+        "label": "NSW 262"
+      },
+      {
+        "fy": "2011-12",
+        "year_end": 2012,
+        "state": "Victoria",
+        "state_code": "VIC",
+        "state_id": 2,
+        "farms": 4556.0,
+        "cows_thousand": 1115.0,
+        "production_ml": 6246.0,
+        "litres_per_cow": 6027.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 244.73222124670764,
+        "period": "2011–12",
+        "label": "VIC 245"
+      },
+      {
+        "fy": "2011-12",
+        "year_end": 2012,
+        "state": "Queensland",
+        "state_code": "QLD",
+        "state_id": 3,
+        "farms": 555.0,
+        "cows_thousand": 101.0,
+        "production_ml": 491.0,
+        "litres_per_cow": 5008.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 181.981981981982,
+        "period": "2011–12",
+        "label": "QLD 182"
+      },
+      {
+        "fy": "2011-12",
+        "year_end": 2012,
+        "state": "South Australia",
+        "state_code": "SA",
+        "state_id": 4,
+        "farms": 275.0,
+        "cows_thousand": 76.0,
+        "production_ml": 575.0,
+        "litres_per_cow": 6646.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 276.3636363636364,
+        "period": "2011–12",
+        "label": "SA 276"
+      },
+      {
+        "fy": "2011-12",
+        "year_end": 2012,
+        "state": "Western Australia",
+        "state_code": "WA",
+        "state_id": 5,
+        "farms": 162.0,
+        "cows_thousand": 57.0,
+        "production_ml": 349.0,
+        "litres_per_cow": 5967.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 351.85185185185185,
+        "period": "2011–12",
+        "label": "WA 352"
+      },
+      {
+        "fy": "2011-12",
+        "year_end": 2012,
+        "state": "Tasmania",
+        "state_code": "TAS",
+        "state_id": 6,
+        "farms": 444.0,
+        "cows_thousand": 148.0,
+        "production_ml": 792.0,
+        "litres_per_cow": 5636.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 333.3333333333333,
+        "period": "2011–12",
+        "label": "TAS 333"
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "New South Wales",
+        "state_code": "NSW",
+        "state_id": 1,
+        "farms": 443.0,
+        "cows_thousand": 152.0,
+        "production_ml": 1071.0,
+        "litres_per_cow": 7013.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 343.11512415349887,
+        "period": "2024–25",
+        "label": "NSW 343"
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "Victoria",
+        "state_code": "VIC",
+        "state_id": 2,
+        "farms": 2476.0,
+        "cows_thousand": 805.0,
+        "production_ml": 5266.0,
+        "litres_per_cow": 6422.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 325.1211631663974,
+        "period": "2024–25",
+        "label": "VIC 325"
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "Queensland",
+        "state_code": "QLD",
+        "state_id": 3,
+        "farms": 253.0,
+        "cows_thousand": 59.0,
+        "production_ml": 275.0,
+        "litres_per_cow": 4598.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 233.20158102766797,
+        "period": "2024–25",
+        "label": "QLD 233"
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "South Australia",
+        "state_code": "SA",
+        "state_id": 4,
+        "farms": 166.0,
+        "cows_thousand": 64.0,
+        "production_ml": 471.0,
+        "litres_per_cow": 7363.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 385.5421686746988,
+        "period": "2024–25",
+        "label": "SA 386"
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "Western Australia",
+        "state_code": "WA",
+        "state_id": 5,
+        "farms": 99.0,
+        "cows_thousand": 46.0,
+        "production_ml": 331.0,
+        "litres_per_cow": 6865.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 464.64646464646466,
+        "period": "2024–25",
+        "label": "WA 465"
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "state": "Tasmania",
+        "state_code": "TAS",
+        "state_id": 6,
+        "farms": 335.0,
+        "cows_thousand": 174.0,
+        "production_ml": 901.0,
+        "litres_per_cow": 5068.0,
+        "source_id": "DA_IF2025_Tables2_3_4_6",
+        "cows_per_farm": 519.4029850746268,
+        "period": "2024–25",
+        "label": "TAS 519"
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "slopeState",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "NSW",
+          "VIC",
+          "QLD",
+          "SA",
+          "WA",
+          "TAS"
+        ],
+        "name": "Highlight state "
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "period",
+      "type": "ordinal",
+      "sort": [
+        "2011–12",
+        "2024–25"
+      ],
+      "title": null,
+      "scale": {
+        "padding": 0.7
+      },
+      "axis": {
+        "labelAngle": 0,
+        "labelFontSize": 12
+      }
+    },
+    "y": {
+      "field": "cows_per_farm",
+      "type": "quantitative",
+      "title": "Approx. cows per registered farm",
+      "scale": {
+        "domain": [
+          150,
+          550
+        ],
+        "zero": false
+      },
+      "axis": {
+        "tickCount": 5
+      }
+    },
+    "color": {
+      "field": "state_code",
+      "type": "nominal",
+      "scale": {
+        "domain": [
+          "NSW",
+          "VIC",
+          "QLD",
+          "SA",
+          "WA",
+          "TAS"
+        ],
+        "range": [
+          "#286a9e",
+          "#367d60",
+          "#bd802d",
+          "#846289",
+          "#568c9b",
+          "#77654d"
+        ]
+      },
+      "legend": null
+    },
+    "opacity": {
+      "condition": {
+        "test": "slopeState == 'All' || datum.state_code == slopeState",
+        "value": 1
+      },
+      "value": 0.12
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "period",
+        "type": "nominal",
+        "title": "Financial year"
+      },
+      {
+        "field": "farms",
+        "type": "quantitative",
+        "title": "Registered farms",
+        "format": ",.0f"
+      },
+      {
+        "field": "cows_thousand",
+        "type": "quantitative",
+        "title": "Cows (rounded thousands)",
+        "format": ",.0f"
+      },
+      {
+        "field": "cows_per_farm",
+        "type": "quantitative",
+        "title": "Approx. cows per farm",
+        "format": ".1f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "line",
+        "strokeWidth": 2.5,
+        "point": {
+          "filled": true,
+          "size": 65
+        }
+      },
+      "encoding": {
+        "detail": {
+          "field": "state_code"
+        },
+        "order": {
+          "field": "year_end"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year_end == 2012"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "right",
+        "dx": -10,
+        "fontSize": 10,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "filter": "datum.year_end == 2025"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 10,
+        "fontSize": 10,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-14"
+  }
+}

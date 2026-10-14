@@ -1,0 +1,270 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Dumbbell comparison of registered dairy farms. Two endpoints, not a continuous trajectory. 2024–25 counts are provisional.",
+  "width": 500,
+  "height": 285,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": 12,
+  "config": {
+    "font": "Avenir Next, Arial, sans-serif",
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "gridColor": "#e5edf2",
+      "domainColor": "#a3b5c3",
+      "tickColor": "#a3b5c3",
+      "titlePadding": 12,
+      "labelPadding": 6
+    },
+    "legend": {
+      "labelFontSize": 11,
+      "titleFontSize": 11,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "orient": "bottom"
+    },
+    "range": {
+      "category": [
+        "#286a9e",
+        "#367d60",
+        "#bd802d",
+        "#846289",
+        "#568c9b",
+        "#77654d"
+      ]
+    }
+  },
+  "encoding": {
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": [
+        "VIC",
+        "NSW",
+        "TAS",
+        "QLD",
+        "SA",
+        "WA"
+      ],
+      "title": null
+    }
+  },
+  "layer": [
+    {
+      "data": {
+        "values": [
+          {
+            "state": "NSW",
+            "old": 778.0,
+            "new": 443.0,
+            "change_pct": -43.05912596401028
+          },
+          {
+            "state": "VIC",
+            "old": 4556.0,
+            "new": 2476.0,
+            "change_pct": -45.6540825285338
+          },
+          {
+            "state": "QLD",
+            "old": 555.0,
+            "new": 253.0,
+            "change_pct": -54.414414414414416
+          },
+          {
+            "state": "SA",
+            "old": 275.0,
+            "new": 166.0,
+            "change_pct": -39.63636363636363
+          },
+          {
+            "state": "WA",
+            "old": 162.0,
+            "new": 99.0,
+            "change_pct": -38.888888888888886
+          },
+          {
+            "state": "TAS",
+            "old": 444.0,
+            "new": 335.0,
+            "change_pct": -24.549549549549553
+          }
+        ]
+      },
+      "mark": {
+        "type": "rule",
+        "strokeWidth": 3,
+        "color": "#cedae2"
+      },
+      "encoding": {
+        "x": {
+          "field": "new",
+          "type": "quantitative",
+          "title": "Registered farms",
+          "scale": {
+            "zero": true
+          },
+          "axis": {
+            "tickCount": 5
+          }
+        },
+        "x2": {
+          "field": "old"
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "old",
+            "type": "quantitative",
+            "title": "2011–12 farms",
+            "format": ",.0f"
+          },
+          {
+            "field": "new",
+            "type": "quantitative",
+            "title": "2024–25 farms (p)",
+            "format": ",.0f"
+          },
+          {
+            "field": "change_pct",
+            "type": "quantitative",
+            "title": "Change (%)",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "state": "NSW",
+            "farms": 778.0,
+            "period": "2011–12"
+          },
+          {
+            "state": "NSW",
+            "farms": 443.0,
+            "period": "2024–25 (p)"
+          },
+          {
+            "state": "VIC",
+            "farms": 4556.0,
+            "period": "2011–12"
+          },
+          {
+            "state": "VIC",
+            "farms": 2476.0,
+            "period": "2024–25 (p)"
+          },
+          {
+            "state": "QLD",
+            "farms": 555.0,
+            "period": "2011–12"
+          },
+          {
+            "state": "QLD",
+            "farms": 253.0,
+            "period": "2024–25 (p)"
+          },
+          {
+            "state": "SA",
+            "farms": 275.0,
+            "period": "2011–12"
+          },
+          {
+            "state": "SA",
+            "farms": 166.0,
+            "period": "2024–25 (p)"
+          },
+          {
+            "state": "WA",
+            "farms": 162.0,
+            "period": "2011–12"
+          },
+          {
+            "state": "WA",
+            "farms": 99.0,
+            "period": "2024–25 (p)"
+          },
+          {
+            "state": "TAS",
+            "farms": 444.0,
+            "period": "2011–12"
+          },
+          {
+            "state": "TAS",
+            "farms": 335.0,
+            "period": "2024–25 (p)"
+          }
+        ]
+      },
+      "mark": {
+        "type": "point",
+        "filled": true,
+        "size": 85
+      },
+      "encoding": {
+        "x": {
+          "field": "farms",
+          "type": "quantitative"
+        },
+        "color": {
+          "field": "period",
+          "type": "nominal",
+          "scale": {
+            "domain": [
+              "2011–12",
+              "2024–25 (p)"
+            ],
+            "range": [
+              "#7892a7",
+              "#367d60"
+            ]
+          },
+          "legend": {
+            "title": null
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "period",
+            "type": "nominal",
+            "title": "Year"
+          },
+          {
+            "field": "farms",
+            "type": "quantitative",
+            "title": "Registered farms",
+            "format": ",.0f"
+          }
+        ]
+      }
+    }
+  ],
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-14"
+  }
+}
