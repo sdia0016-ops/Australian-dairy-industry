@@ -20,6 +20,4 @@ Substantive sources are Dairy Australia's production statistics and *Australian 
 
 Production charts use the revised 2020–21 to 2025–26 series. Structural comparisons preserve the 2025 report vintage. Approximate cows per registered farm divides rounded March cow counts by annual registered farms; it is not a typical-farm survey. Slope connections join two endpoints, not intermediate observations. ABS retail estimates are purchases, not measured diet. Butterfly bars are positive on both sides; leftward direction identifies the baseline period. Waffles show relative composition, not absolute market size: the 2010–11 total is 2,314 ML and the 2024–25 total is 2,340 ML. Export links are schematic relationships, not shipping routes. Small islands are generalised for display, and ACT/NT have no separate dairy data.
 
-AI assistance is acknowledged in the webpage. The author must review the work and understand its data and design for the studio interview.
-
 The assessed hand-drawn sketch is not included in this package. Add the genuine paper sketch as `sketch.pdf` after scanning it, then insert its public URL and image into the separate assignment report.
