@@ -1,0 +1,323 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Labelled matrix of state shares of three national totals in the same 2024–25 report vintage. Each column uses its own denominator: farms, cows or milk. Milk total is the report’s 8,315 ML, not the revised monthly series.",
+  "width": 500,
+  "height": 365,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": 12,
+  "config": {
+    "font": "Avenir Next, Arial, sans-serif",
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "gridColor": "#e5edf2",
+      "domainColor": "#a3b5c3",
+      "tickColor": "#a3b5c3",
+      "titlePadding": 12,
+      "labelPadding": 6
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "orient": "bottom"
+    },
+    "range": {
+      "category": [
+        "#286a9e",
+        "#367d60",
+        "#bd802d",
+        "#846289",
+        "#568c9b",
+        "#77654d"
+      ]
+    }
+  },
+  "data": {
+    "values": [
+      {
+        "state": "NSW",
+        "attribute": "Farms",
+        "share_pct": 11.744432661717921,
+        "order": 0
+      },
+      {
+        "state": "NSW",
+        "attribute": "Cows",
+        "share_pct": 11.692307692307692,
+        "order": 1
+      },
+      {
+        "state": "NSW",
+        "attribute": "Milk",
+        "share_pct": 12.880336740829826,
+        "order": 2
+      },
+      {
+        "state": "VIC",
+        "attribute": "Farms",
+        "share_pct": 65.64156945917286,
+        "order": 0
+      },
+      {
+        "state": "VIC",
+        "attribute": "Cows",
+        "share_pct": 61.92307692307693,
+        "order": 1
+      },
+      {
+        "state": "VIC",
+        "attribute": "Milk",
+        "share_pct": 63.33132892363199,
+        "order": 2
+      },
+      {
+        "state": "QLD",
+        "attribute": "Farms",
+        "share_pct": 6.707317073170732,
+        "order": 0
+      },
+      {
+        "state": "QLD",
+        "attribute": "Cows",
+        "share_pct": 4.538461538461538,
+        "order": 1
+      },
+      {
+        "state": "QLD",
+        "attribute": "Milk",
+        "share_pct": 3.307276007215875,
+        "order": 2
+      },
+      {
+        "state": "SA",
+        "attribute": "Farms",
+        "share_pct": 4.40084835630965,
+        "order": 0
+      },
+      {
+        "state": "SA",
+        "attribute": "Cows",
+        "share_pct": 4.923076923076923,
+        "order": 1
+      },
+      {
+        "state": "SA",
+        "attribute": "Milk",
+        "share_pct": 5.664461815995189,
+        "order": 2
+      },
+      {
+        "state": "WA",
+        "attribute": "Farms",
+        "share_pct": 2.6246023329798516,
+        "order": 0
+      },
+      {
+        "state": "WA",
+        "attribute": "Cows",
+        "share_pct": 3.5384615384615383,
+        "order": 1
+      },
+      {
+        "state": "WA",
+        "attribute": "Milk",
+        "share_pct": 3.9807576668671074,
+        "order": 2
+      },
+      {
+        "state": "TAS",
+        "attribute": "Farms",
+        "share_pct": 8.881230116648993,
+        "order": 0
+      },
+      {
+        "state": "TAS",
+        "attribute": "Cows",
+        "share_pct": 13.384615384615383,
+        "order": 1
+      },
+      {
+        "state": "TAS",
+        "attribute": "Milk",
+        "share_pct": 10.835838845460012,
+        "order": 2
+      }
+    ]
+  },
+  "params": [
+    {
+      "name": "stateFocus",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "NSW",
+          "VIC",
+          "QLD",
+          "SA",
+          "WA",
+          "TAS"
+        ],
+        "name": "Outline state "
+      }
+    }
+  ],
+  "encoding": {
+    "x": {
+      "field": "attribute",
+      "type": "ordinal",
+      "sort": [
+        "Farms",
+        "Cows",
+        "Milk"
+      ],
+      "title": null,
+      "axis": {
+        "orient": "top",
+        "labelAngle": 0,
+        "labelFontSize": 14,
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "y": {
+      "field": "state",
+      "type": "nominal",
+      "sort": [
+        "VIC",
+        "NSW",
+        "TAS",
+        "WA",
+        "SA",
+        "QLD"
+      ],
+      "title": null,
+      "axis": {
+        "domain": false,
+        "ticks": false
+      }
+    },
+    "tooltip": [
+      {
+        "field": "state",
+        "type": "nominal",
+        "title": "State"
+      },
+      {
+        "field": "attribute",
+        "type": "nominal",
+        "title": "National total"
+      },
+      {
+        "field": "share_pct",
+        "type": "quantitative",
+        "title": "State share (%)",
+        "format": ".1f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rect",
+        "strokeWidth": 3
+      },
+      "encoding": {
+        "color": {
+          "field": "share_pct",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              0,
+              100
+            ],
+            "scheme": "blues"
+          },
+          "legend": {
+            "title": "Share of column total (%)",
+            "values": [
+              0,
+              25,
+              50,
+              75,
+              100
+            ],
+            "gradientLength": 180
+          }
+        },
+        "stroke": {
+          "condition": [
+            {
+              "test": "datum.state == stateFocus",
+              "value": "#173d65"
+            },
+            {
+              "param": "profileHover",
+              "empty": false,
+              "value": "#173d65"
+            }
+          ],
+          "value": "white"
+        }
+      },
+      "params": [
+        {
+          "name": "profileHover",
+          "select": {
+            "type": "point",
+            "fields": [
+              "state"
+            ],
+            "on": "pointerover",
+            "clear": "pointerout"
+          }
+        }
+      ]
+    },
+    {
+      "mark": {
+        "type": "text",
+        "fontSize": 15,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "text": {
+          "field": "share_label",
+          "type": "nominal"
+        },
+        "color": {
+          "condition": {
+            "test": "datum.share_pct > 50",
+            "value": "white"
+          },
+          "value": "#173d65"
+        }
+      }
+    }
+  ],
+  "transform": [
+    {
+      "calculate": "format(datum.share_pct,'.1f')+'%'",
+      "as": "share_label"
+    }
+  ],
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-22"
+  }
+}

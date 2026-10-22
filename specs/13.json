@@ -1,0 +1,207 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Ranked horizontal bars compare nominal export value by product on a common zero-based AUD million scale. Direct labels also show shares of the AUD 3,808 million total. Whole milk powder includes infant powder.",
+  "width": 500,
+  "height": 420,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": 12,
+  "config": {
+    "font": "Avenir Next, Arial, sans-serif",
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "gridColor": "#e5edf2",
+      "domainColor": "#a3b5c3",
+      "tickColor": "#a3b5c3",
+      "titlePadding": 12,
+      "labelPadding": 6
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "orient": "bottom"
+    },
+    "range": {
+      "category": [
+        "#286a9e",
+        "#367d60",
+        "#bd802d",
+        "#846289",
+        "#568c9b",
+        "#77654d"
+      ]
+    }
+  },
+  "data": {
+    "values": [
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "product": "Butter/AMF",
+        "value_aud_m": 215.0,
+        "source_id": "DA_IF2025_T8",
+        "label": "Butter / AMF",
+        "share_pct": 5.6460084033613445
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "product": "Cheese",
+        "value_aud_m": 1256.0,
+        "source_id": "DA_IF2025_T8",
+        "label": "Cheese",
+        "share_pct": 32.983193277310924
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "product": "Liquid milk",
+        "value_aud_m": 323.0,
+        "source_id": "DA_IF2025_T8",
+        "label": "Liquid milk",
+        "share_pct": 8.482142857142858
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "product": "Skim milk powder",
+        "value_aud_m": 770.0,
+        "source_id": "DA_IF2025_T8",
+        "label": "Skim milk powder",
+        "share_pct": 20.22058823529412
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "product": "Whole milk powder (including infant powder)",
+        "value_aud_m": 650.0,
+        "source_id": "DA_IF2025_T8",
+        "label": "Whole milk powder*",
+        "share_pct": 17.069327731092436
+      },
+      {
+        "fy": "2024-25",
+        "year_end": 2025,
+        "product": "Other dairy products",
+        "value_aud_m": 594.0,
+        "source_id": "DA_IF2025_T8",
+        "label": "Other dairy",
+        "share_pct": 15.59873949579832
+      }
+    ]
+  },
+  "encoding": {
+    "y": {
+      "field": "label",
+      "type": "nominal",
+      "sort": [
+        "Cheese",
+        "Skim milk powder",
+        "Whole milk powder*",
+        "Other dairy",
+        "Liquid milk",
+        "Butter / AMF"
+      ],
+      "title": null,
+      "axis": {
+        "labelLimit": {
+          "expr": "width < 500 ? 110 : 190"
+        },
+        "labelExpr": "datum.label == 'Whole milk powder*' ? ['Whole milk','powder*'] : datum.label == 'Skim milk powder' ? ['Skim milk','powder'] : datum.label",
+        "labelPadding": 10
+      }
+    },
+    "x": {
+      "field": "value_aud_m",
+      "type": "quantitative",
+      "title": "Export value (AUD million)",
+      "scale": {
+        "domain": [
+          0,
+          1600
+        ]
+      },
+      "axis": {
+        "tickCount": 4
+      }
+    },
+    "tooltip": [
+      {
+        "field": "product",
+        "type": "nominal",
+        "title": "Product"
+      },
+      {
+        "field": "value_aud_m",
+        "type": "quantitative",
+        "title": "AUD million",
+        "format": ",.0f"
+      },
+      {
+        "field": "share_pct",
+        "type": "quantitative",
+        "title": "Share of total value (%)",
+        "format": ".1f"
+      }
+    ]
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "bar",
+        "height": 24,
+        "color": "#286a9e"
+      },
+      "encoding": {
+        "color": {
+          "condition": {
+            "test": "datum.product == 'Cheese'",
+            "value": "#286a9e"
+          },
+          "value": "#9ab5c9"
+        }
+      }
+    },
+    {
+      "transform": [
+        {
+          "calculate": "format(datum.value_aud_m,',.0f')+' · '+format(datum.share_pct,'.1f')+'%'",
+          "as": "label_value"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 7,
+        "fontSize": 12,
+        "color": "#173d65",
+        "fontWeight": {
+          "expr": "datum.product == 'Cheese' ? 'bold' : 'normal'"
+        }
+      },
+      "encoding": {
+        "text": {
+          "field": "label_value"
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-22"
+  }
+}
