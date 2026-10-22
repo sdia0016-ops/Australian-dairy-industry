@@ -6,7 +6,7 @@
     const number = String(index + 1).padStart(2, "0");
     return {
       id: `chart-${number}`,
-      url: `specs/${number}.json`,
+      url: `specs/${number}.json?v=20261022`,
       host: document.getElementById(`chart-${number}`),
       source: null,
       result: null,
@@ -18,6 +18,27 @@
 
   window.chartViews = Object.create(null);
   window.chartErrors = Object.create(null);
+
+  const chapters = [...document.querySelectorAll('main > .chapter')];
+  const chapterLinks = [...document.querySelectorAll('.site-header nav a')];
+  let readingFrame;
+  function updateReadingPosition() {
+    readingFrame = null;
+    const available = document.documentElement.scrollHeight - window.innerHeight;
+    document.documentElement.style.setProperty('--reading-progress', available > 0 ? Math.max(0, Math.min(1, window.scrollY / available)) : 0);
+    let current = '';
+    for (const chapter of chapters) {
+      if (chapter.getBoundingClientRect().top <= 180) current = '#' + chapter.id;
+    }
+    for (const link of chapterLinks) {
+      if (link.getAttribute('href') === current) link.setAttribute('aria-current', 'location');
+      else link.removeAttribute('aria-current');
+    }
+  }
+  window.addEventListener('scroll', () => {
+    if (!readingFrame) readingFrame = requestAnimationFrame(updateReadingPosition);
+  }, { passive: true });
+  updateReadingPosition();
 
   const clone = value => JSON.parse(JSON.stringify(value));
 
@@ -103,7 +124,9 @@
       const remembered = savedControls(entry);
       const specification = clone(entry.source);
       specification.width = width;
-      if (entry.id === "chart-12") specification.height = Math.max(260, Math.min(430, Math.round(width * 0.44)));
+      if (entry.id === "chart-12") specification.height = width >= 720 ? 580 : 960;
+      if (entry.id === "chart-07") specification.height = width < 520 ? 750 : 510;
+      
       if (entry.result) {
         entry.result.finalize();
         entry.result = null;
