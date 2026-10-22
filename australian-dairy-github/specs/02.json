@@ -1,0 +1,557 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v6.json",
+  "description": "Choropleth of proportional state production change. Fixed diverging scale centred on zero. ACT and NT have no separate observations and are grey.",
+  "width": 500,
+  "height": 400,
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "padding": 12,
+  "config": {
+    "font": "Avenir Next, Arial, sans-serif",
+    "background": "white",
+    "view": {
+      "stroke": null
+    },
+    "axis": {
+      "labelFontSize": 13,
+      "titleFontSize": 13,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "gridColor": "#e5edf2",
+      "domainColor": "#a3b5c3",
+      "tickColor": "#a3b5c3",
+      "titlePadding": 12,
+      "labelPadding": 6
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12,
+      "titleFontWeight": "normal",
+      "labelColor": "#42566b",
+      "titleColor": "#42566b",
+      "orient": "bottom"
+    },
+    "range": {
+      "category": [
+        "#286a9e",
+        "#367d60",
+        "#bd802d",
+        "#846289",
+        "#568c9b",
+        "#77654d"
+      ]
+    }
+  },
+  "params": [
+    {
+      "name": "startYear",
+      "value": 2021,
+      "bind": {
+        "input": "select",
+        "options": [
+          2021,
+          2022,
+          2023,
+          2024,
+          2025
+        ],
+        "name": "Compare 2025–26 with ",
+        "labels": [
+          "2020–21",
+          "2021–22",
+          "2022–23",
+          "2023–24",
+          "2024–25"
+        ]
+      }
+    }
+  ],
+  "projection": {
+    "type": "conicEqualArea",
+    "rotate": [
+      -133,
+      0,
+      0
+    ],
+    "parallels": [
+      -18,
+      -36
+    ]
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "data/australia.geojson?v=20261013-final",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#d9e1e6",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      },
+      "encoding": {
+        "tooltip": [
+          {
+            "field": "properties.state",
+            "type": "nominal",
+            "title": "State / territory"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "url": "data/australia.geojson?v=20261013-final",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "transform": [
+        {
+          "lookup": "properties.state_code",
+          "from": {
+            "data": {
+              "values": [
+                {
+                  "state_code": "NSW",
+                  "state": "New South Wales",
+                  "latest_ml": 1090.1125300875078,
+                  "change_2021": 1.3639356195507268,
+                  "base_2021": 1075.4441640654397,
+                  "change_2022": 5.456416818539123,
+                  "base_2022": 1033.7090553373205,
+                  "change_2023": 5.037175714050468,
+                  "base_2023": 1037.8349595529796,
+                  "change_2024": 3.3403173200759806,
+                  "base_2024": 1054.8763138699314,
+                  "change_2025": 2.3537030009094906,
+                  "base_2025": 1065.0445446783897
+                },
+                {
+                  "state_code": "VIC",
+                  "state": "Victoria",
+                  "latest_ml": 5554.636644197224,
+                  "change_2021": -1.7015875444973627,
+                  "base_2021": 5650.789779246615,
+                  "change_2022": 2.0565330410164284,
+                  "base_2022": 5442.705605103027,
+                  "change_2023": 7.2668079451689405,
+                  "base_2023": 5178.336850516294,
+                  "change_2024": 3.614110812399529,
+                  "base_2024": 5360.888203976653,
+                  "change_2025": 1.8769466805466761,
+                  "base_2025": 5452.299882538468
+                },
+                {
+                  "state_code": "QLD",
+                  "state": "Queensland",
+                  "latest_ml": 287.67077625373315,
+                  "change_2021": -7.038322650850937,
+                  "base_2021": 309.4509312405026,
+                  "change_2022": -1.451573104973236,
+                  "base_2022": 291.90803477782396,
+                  "change_2023": -0.39802826715940043,
+                  "base_2023": 288.8203629395449,
+                  "change_2024": -1.305528214421725,
+                  "base_2024": 291.4760786994445,
+                  "change_2025": 3.2532040485474756,
+                  "base_2025": 278.6071182047546
+                },
+                {
+                  "state_code": "SA",
+                  "state": "South Australia",
+                  "latest_ml": 443.9482050735372,
+                  "change_2021": -11.121445677904218,
+                  "base_2021": 499.4998044912718,
+                  "change_2022": -6.328267964364487,
+                  "base_2022": 473.9404251697258,
+                  "change_2023": -10.366925661484549,
+                  "base_2023": 495.29507757023583,
+                  "change_2024": -11.283158815447447,
+                  "base_2024": 500.41029318212225,
+                  "change_2025": -6.0060283396953125,
+                  "base_2025": 472.31561474811514
+                },
+                {
+                  "state_code": "WA",
+                  "state": "Western Australia",
+                  "latest_ml": 337.36679907630884,
+                  "change_2021": -6.786396901433889,
+                  "base_2021": 361.92871840773046,
+                  "change_2022": 0.1317107388042471,
+                  "base_2022": 336.9230352573697,
+                  "change_2023": -1.8086588118033653,
+                  "base_2023": 343.5810072394275,
+                  "change_2024": -2.9427413826808912,
+                  "base_2024": 347.595639813495,
+                  "change_2025": -0.755289207007348,
+                  "base_2025": 339.93428604976015
+                },
+                {
+                  "state_code": "TAS",
+                  "state": "Tasmania",
+                  "latest_ml": 940.5719530458448,
+                  "change_2021": -2.1279034234695238,
+                  "base_2021": 961.0215638022737,
+                  "change_2022": 6.472370412838502,
+                  "base_2022": 883.3953347698081,
+                  "change_2023": 3.1990920213655683,
+                  "base_2023": 911.4149500957972,
+                  "change_2024": 0.1714660319315664,
+                  "base_2024": 938.9619522449831,
+                  "change_2025": 2.565906605781776,
+                  "base_2025": 917.0415240036727
+                }
+              ]
+            },
+            "key": "state_code",
+            "fields": [
+              "state",
+              "latest_ml",
+              "change_2021",
+              "change_2022",
+              "change_2023",
+              "change_2024",
+              "change_2025",
+              "base_2021",
+              "base_2022",
+              "base_2023",
+              "base_2024",
+              "base_2025"
+            ]
+          }
+        },
+        {
+          "calculate": "datum['change_' + startYear]",
+          "as": "change"
+        },
+        {
+          "calculate": "datum['base_' + startYear]",
+          "as": "base_ml"
+        },
+        {
+          "calculate": "datum.properties.state + (isValid(datum.change) ? '' : ' — not reported')",
+          "as": "state_label"
+        },
+        {
+          "filter": "isValid(datum.latest_ml)"
+        }
+      ],
+      "mark": {
+        "type": "geoshape",
+        "stroke": "white",
+        "strokeWidth": 1.5,
+        "invalid": null
+      },
+      "encoding": {
+        "color": {
+          "field": "change",
+          "type": "quantitative",
+          "scale": {
+            "domain": [
+              -12,
+              0,
+              12
+            ],
+            "range": [
+              "#bf792f",
+              "#f8f8f5",
+              "#286a9e"
+            ]
+          },
+          "legend": {
+            "title": "Production change (%)",
+            "gradientLength": 180
+          }
+        },
+        "tooltip": [
+          {
+            "field": "state_label",
+            "type": "nominal",
+            "title": "State"
+          },
+          {
+            "field": "base_ml",
+            "type": "quantitative",
+            "title": "Starting year (million litres)",
+            "format": ",.1f"
+          },
+          {
+            "field": "latest_ml",
+            "type": "quantitative",
+            "title": "2025–26 (million litres)",
+            "format": ",.1f"
+          },
+          {
+            "field": "change",
+            "type": "quantitative",
+            "title": "Change (%)",
+            "format": "+.1f"
+          }
+        ]
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  122,
+                  -25.5
+                ],
+                [
+                  114,
+                  -29
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  144.5,
+                  -22.5
+                ],
+                [
+                  145,
+                  -18
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  135,
+                  -30.3
+                ],
+                [
+                  132,
+                  -26
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  147,
+                  -32.5
+                ],
+                [
+                  154,
+                  -30
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  144.8,
+                  -37
+                ],
+                [
+                  151,
+                  -38
+                ]
+              ]
+            }
+          },
+          {
+            "type": "Feature",
+            "geometry": {
+              "type": "LineString",
+              "coordinates": [
+                [
+                  146.6,
+                  -42.1
+                ],
+                [
+                  151,
+                  -44
+                ]
+              ]
+            }
+          }
+        ]
+      },
+      "mark": {
+        "type": "geoshape",
+        "filled": false,
+        "stroke": "#7892a7",
+        "strokeWidth": 1
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {
+            "state_code": "NSW",
+            "state": "New South Wales",
+            "latest_ml": 1090.1125300875078,
+            "change_2021": 1.3639356195507268,
+            "base_2021": 1075.4441640654397,
+            "change_2022": 5.456416818539123,
+            "base_2022": 1033.7090553373205,
+            "change_2023": 5.037175714050468,
+            "base_2023": 1037.8349595529796,
+            "change_2024": 3.3403173200759806,
+            "base_2024": 1054.8763138699314,
+            "change_2025": 2.3537030009094906,
+            "base_2025": 1065.0445446783897,
+            "lon": 154,
+            "lat": -30
+          },
+          {
+            "state_code": "VIC",
+            "state": "Victoria",
+            "latest_ml": 5554.636644197224,
+            "change_2021": -1.7015875444973627,
+            "base_2021": 5650.789779246615,
+            "change_2022": 2.0565330410164284,
+            "base_2022": 5442.705605103027,
+            "change_2023": 7.2668079451689405,
+            "base_2023": 5178.336850516294,
+            "change_2024": 3.614110812399529,
+            "base_2024": 5360.888203976653,
+            "change_2025": 1.8769466805466761,
+            "base_2025": 5452.299882538468,
+            "lon": 151,
+            "lat": -38
+          },
+          {
+            "state_code": "QLD",
+            "state": "Queensland",
+            "latest_ml": 287.67077625373315,
+            "change_2021": -7.038322650850937,
+            "base_2021": 309.4509312405026,
+            "change_2022": -1.451573104973236,
+            "base_2022": 291.90803477782396,
+            "change_2023": -0.39802826715940043,
+            "base_2023": 288.8203629395449,
+            "change_2024": -1.305528214421725,
+            "base_2024": 291.4760786994445,
+            "change_2025": 3.2532040485474756,
+            "base_2025": 278.6071182047546,
+            "lon": 145,
+            "lat": -18
+          },
+          {
+            "state_code": "SA",
+            "state": "South Australia",
+            "latest_ml": 443.9482050735372,
+            "change_2021": -11.121445677904218,
+            "base_2021": 499.4998044912718,
+            "change_2022": -6.328267964364487,
+            "base_2022": 473.9404251697258,
+            "change_2023": -10.366925661484549,
+            "base_2023": 495.29507757023583,
+            "change_2024": -11.283158815447447,
+            "base_2024": 500.41029318212225,
+            "change_2025": -6.0060283396953125,
+            "base_2025": 472.31561474811514,
+            "lon": 132,
+            "lat": -26
+          },
+          {
+            "state_code": "WA",
+            "state": "Western Australia",
+            "latest_ml": 337.36679907630884,
+            "change_2021": -6.786396901433889,
+            "base_2021": 361.92871840773046,
+            "change_2022": 0.1317107388042471,
+            "base_2022": 336.9230352573697,
+            "change_2023": -1.8086588118033653,
+            "base_2023": 343.5810072394275,
+            "change_2024": -2.9427413826808912,
+            "base_2024": 347.595639813495,
+            "change_2025": -0.755289207007348,
+            "base_2025": 339.93428604976015,
+            "lon": 114,
+            "lat": -29
+          },
+          {
+            "state_code": "TAS",
+            "state": "Tasmania",
+            "latest_ml": 940.5719530458448,
+            "change_2021": -2.1279034234695238,
+            "base_2021": 961.0215638022737,
+            "change_2022": 6.472370412838502,
+            "base_2022": 883.3953347698081,
+            "change_2023": 3.1990920213655683,
+            "base_2023": 911.4149500957972,
+            "change_2024": 0.1714660319315664,
+            "base_2024": 938.9619522449831,
+            "change_2025": 2.565906605781776,
+            "base_2025": 917.0415240036727,
+            "lon": 151,
+            "lat": -44
+          }
+        ]
+      },
+      "transform": [
+        {
+          "calculate": "datum['change_' + startYear]",
+          "as": "change"
+        },
+        {
+          "calculate": "datum.state_code + '\\n' + format(datum.change,'+.1f')+'%'",
+          "as": "label"
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "lineBreak": "\n",
+        "lineHeight": 15,
+        "fontSize": 12,
+        "fontWeight": "bold",
+        "color": "#173d65",
+        "stroke": "white",
+        "strokeWidth": 0.2
+      },
+      "encoding": {
+        "longitude": {
+          "field": "lon",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "lat",
+          "type": "quantitative"
+        },
+        "text": {
+          "field": "label"
+        }
+      }
+    }
+  ],
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-22"
+  }
+}

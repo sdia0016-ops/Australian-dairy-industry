@@ -1,0 +1,494 @@
+{
+  "$schema": "https://vega.github.io/schema/vega/v6.json",
+  "description": "Six state slope panels compare approximate cows per registered farm at two actual endpoints, 2011–12 and 2024–25. Every panel uses the same focused 150–550 scale. Rounded March cow counts divided by registered farms; not a typical herd estimate.",
+  "width": 1000,
+  "height": 490,
+  "padding": 14,
+  "background": "white",
+  "autosize": {
+    "type": "fit",
+    "contains": "padding",
+    "resize": true
+  },
+  "config": {
+    "text": {
+      "font": "Avenir Next, Arial, sans-serif",
+      "fill": "#173d65"
+    },
+    "axis": {
+      "labelFont": "Avenir Next, Arial, sans-serif",
+      "labelFontSize": 13,
+      "labelColor": "#42566b",
+      "domainColor": "#a3b5c3",
+      "tickColor": "#a3b5c3",
+      "titleFontSize": 13
+    },
+    "legend": {
+      "labelFontSize": 12,
+      "titleFontSize": 12
+    }
+  },
+  "signals": [
+    {
+      "name": "slopeState",
+      "value": "All",
+      "bind": {
+        "input": "select",
+        "options": [
+          "All",
+          "NSW",
+          "VIC",
+          "QLD",
+          "SA",
+          "WA",
+          "TAS"
+        ],
+        "name": "Outline state "
+      }
+    },
+    {
+      "name": "cols",
+      "update": "width < 520 ? 2 : 3"
+    },
+    {
+      "name": "pw",
+      "update": "width/cols"
+    },
+    {
+      "name": "ph",
+      "update": "(height-34)/ceil(6/cols)"
+    },
+    {
+      "name": "lx",
+      "update": "width < 520 ? pw*.43 : pw*.27"
+    },
+    {
+      "name": "rx",
+      "update": "pw*.80"
+    }
+  ],
+  "data": [
+    {
+      "name": "states",
+      "values": [
+        {
+          "state": "NSW",
+          "index": 0,
+          "before": 262.2107969151671,
+          "after": 343.11512415349887,
+          "change_pct": 30.854689505599087
+        },
+        {
+          "state": "VIC",
+          "index": 1,
+          "before": 244.73222124670764,
+          "after": 325.1211631663974,
+          "change_pct": 32.8477147431486
+        },
+        {
+          "state": "QLD",
+          "index": 2,
+          "before": 181.981981981982,
+          "after": 233.20158102766797,
+          "change_pct": 28.145423237975976
+        },
+        {
+          "state": "SA",
+          "index": 3,
+          "before": 276.3636363636364,
+          "after": 385.5421686746988,
+          "change_pct": 39.505389980976545
+        },
+        {
+          "state": "WA",
+          "index": 4,
+          "before": 351.85185185185185,
+          "after": 464.64646464646466,
+          "change_pct": 32.057416267942585
+        },
+        {
+          "state": "TAS",
+          "index": 5,
+          "before": 333.3333333333333,
+          "after": 519.4029850746268,
+          "change_pct": 55.82089552238807
+        }
+      ]
+    },
+    {
+      "name": "grid",
+      "values": [
+        {
+          "v": 200
+        },
+        {
+          "v": 300
+        },
+        {
+          "v": 400
+        },
+        {
+          "v": 500
+        }
+      ]
+    }
+  ],
+  "scales": [
+    {
+      "name": "value",
+      "type": "linear",
+      "domain": [
+        150,
+        550
+      ],
+      "range": [
+        {
+          "signal": "ph-38"
+        },
+        42
+      ],
+      "zero": false
+    }
+  ],
+  "marks": [
+    {
+      "type": "text",
+      "encode": {
+        "update": {
+          "x": {
+            "value": 0
+          },
+          "y": {
+            "value": 12
+          },
+          "text": {
+            "signal": "width < 520 ? 'Cows / farm · all panels: 150–550' : 'Approx. cows / farm · same 150–550 scale in every panel'"
+          },
+          "fontSize": {
+            "value": 12
+          }
+        }
+      }
+    },
+    {
+      "type": "group",
+      "from": {
+        "data": "states"
+      },
+      "encode": {
+        "update": {
+          "x": {
+            "signal": "datum.index % cols * pw"
+          },
+          "y": {
+            "signal": "34+floor(datum.index/cols)*ph"
+          },
+          "width": {
+            "signal": "pw-8"
+          },
+          "height": {
+            "signal": "ph-8"
+          },
+          "fill": {
+            "signal": "slopeState == datum.state ? '#edf5fa' : 'white'"
+          },
+          "stroke": {
+            "signal": "slopeState == datum.state ? '#286a9e' : '#dbe5eb'"
+          },
+          "strokeWidth": {
+            "signal": "slopeState == datum.state ? 2 : 1"
+          }
+        }
+      },
+      "marks": [
+        {
+          "type": "text",
+          "encode": {
+            "update": {
+              "x": {
+                "value": 10
+              },
+              "y": {
+                "value": 21
+              },
+              "text": {
+                "signal": "parent.state"
+              },
+              "fontSize": {
+                "value": 14
+              },
+              "fontWeight": {
+                "value": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "pw-18"
+              },
+              "y": {
+                "value": 21
+              },
+              "text": {
+                "signal": "format(parent.change_pct,'+.0f')+'%'"
+              },
+              "align": {
+                "value": "right"
+              },
+              "fontSize": {
+                "value": 12
+              },
+              "fill": {
+                "value": "#367d60"
+              },
+              "fontWeight": {
+                "value": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "from": {
+            "data": "grid"
+          },
+          "encode": {
+            "update": {
+              "x": {
+                "value": 34
+              },
+              "x2": {
+                "signal": "pw-20"
+              },
+              "y": {
+                "scale": "value",
+                "field": "v"
+              },
+              "stroke": {
+                "value": "#e5edf2"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "from": {
+            "data": "grid"
+          },
+          "encode": {
+            "update": {
+              "x": {
+                "value": 29
+              },
+              "y": {
+                "scale": "value",
+                "field": "v"
+              },
+              "text": {
+                "field": "v"
+              },
+              "align": {
+                "value": "right"
+              },
+              "baseline": {
+                "value": "middle"
+              },
+              "fontSize": {
+                "value": 12
+              },
+              "fill": {
+                "value": "#667b8b"
+              }
+            }
+          }
+        },
+        {
+          "type": "rule",
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "lx"
+              },
+              "x2": {
+                "signal": "rx"
+              },
+              "y": {
+                "signal": "scale('value',parent.before)"
+              },
+              "y2": {
+                "signal": "scale('value',parent.after)"
+              },
+              "stroke": {
+                "value": "#286a9e"
+              },
+              "strokeWidth": {
+                "value": 3
+              },
+              "tooltip": {
+                "signal": "{'State':parent.state,'2011–12 approx. cows/farm':format(parent.before,'.1f'),'2024–25 approx. cows/farm':format(parent.after,'.1f'),'Change in ratio (%)':format(parent.change_pct,'+.1f')}"
+              }
+            }
+          }
+        },
+        {
+          "type": "symbol",
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "lx"
+              },
+              "y": {
+                "signal": "scale('value',parent.before)"
+              },
+              "size": {
+                "value": 65
+              },
+              "fill": {
+                "value": "#7892a7"
+              },
+              "stroke": {
+                "value": "white"
+              },
+              "tooltip": {
+                "signal": "{'State':parent.state,'2011–12 approx. cows/farm':format(parent.before,'.1f'),'2024–25 approx. cows/farm':format(parent.after,'.1f'),'Change in ratio (%)':format(parent.change_pct,'+.1f')}"
+              }
+            }
+          }
+        },
+        {
+          "type": "symbol",
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "rx"
+              },
+              "y": {
+                "signal": "scale('value',parent.after)"
+              },
+              "size": {
+                "value": 65
+              },
+              "fill": {
+                "value": "#367d60"
+              },
+              "stroke": {
+                "value": "white"
+              },
+              "tooltip": {
+                "signal": "{'State':parent.state,'2011–12 approx. cows/farm':format(parent.before,'.1f'),'2024–25 approx. cows/farm':format(parent.after,'.1f'),'Change in ratio (%)':format(parent.change_pct,'+.1f')}"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "lx"
+              },
+              "y": {
+                "signal": "scale('value',parent.before)-12"
+              },
+              "text": {
+                "signal": "format(parent.before,'.0f')"
+              },
+              "align": {
+                "value": "center"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "rx"
+              },
+              "y": {
+                "signal": "scale('value',parent.after)-12"
+              },
+              "text": {
+                "signal": "format(parent.after,'.0f')"
+              },
+              "align": {
+                "value": "center"
+              },
+              "fontSize": {
+                "value": 13
+              },
+              "fontWeight": {
+                "value": "bold"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "lx"
+              },
+              "y": {
+                "signal": "ph-17"
+              },
+              "text": {
+                "value": "2012"
+              },
+              "align": {
+                "value": "center"
+              },
+              "fontSize": {
+                "value": 12
+              },
+              "fill": {
+                "value": "#42566b"
+              }
+            }
+          }
+        },
+        {
+          "type": "text",
+          "encode": {
+            "update": {
+              "x": {
+                "signal": "rx"
+              },
+              "y": {
+                "signal": "ph-17"
+              },
+              "text": {
+                "value": "2025"
+              },
+              "align": {
+                "value": "center"
+              },
+              "fontSize": {
+                "value": 12
+              },
+              "fill": {
+                "value": "#42566b"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "usermeta": {
+    "author": "Senuth Dias; AI-assisted implementation, acknowledged on page",
+    "prepared": "2026-10-22"
+  }
+}

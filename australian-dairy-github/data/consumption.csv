@@ -1,0 +1,21 @@
+fy,year_end,product,unit,per_capita,status,source_id
+2020-21,2021,Drinking milk,litres per person,94.4,r,DA_IF2025_T10
+2020-21,2021,Cheese,kg per person,12.8,r,DA_IF2025_T10
+2020-21,2021,Butter and blends,kg per person,3.6,r,DA_IF2025_T10
+2020-21,2021,Yoghurt,kg per person,9.5,r,DA_IF2025_T10
+2021-22,2022,Drinking milk,litres per person,93.0,r,DA_IF2025_T10
+2021-22,2022,Cheese,kg per person,14.0,r,DA_IF2025_T10
+2021-22,2022,Butter and blends,kg per person,3.3,r,DA_IF2025_T10
+2021-22,2022,Yoghurt,kg per person,9.6,r,DA_IF2025_T10
+2022-23,2023,Drinking milk,litres per person,90.3,r,DA_IF2025_T10
+2022-23,2023,Cheese,kg per person,15.4,r,DA_IF2025_T10
+2022-23,2023,Butter and blends,kg per person,4.1,r,DA_IF2025_T10
+2022-23,2023,Yoghurt,kg per person,9.7,r,DA_IF2025_T10
+2023-24,2024,Drinking milk,litres per person,88.4,r,DA_IF2025_T10
+2023-24,2024,Cheese,kg per person,14.8,r,DA_IF2025_T10
+2023-24,2024,Butter and blends,kg per person,3.4,r,DA_IF2025_T10
+2023-24,2024,Yoghurt,kg per person,10.0,r,DA_IF2025_T10
+2024-25,2025,Drinking milk,litres per person,85.5,p,DA_IF2025_T10
+2024-25,2025,Cheese,kg per person,13.4,p,DA_IF2025_T10
+2024-25,2025,Butter and blends,kg per person,3.3,p,DA_IF2025_T10
+2024-25,2025,Yoghurt,kg per person,10.6,p,DA_IF2025_T10
